@@ -1,0 +1,13 @@
+{
+  "connectionType": "SSL",
+  "from": "111",
+  "emailUsername": "222",
+  "emailPassword": "333",
+  "settingsFilePath": "src/main/resources/AppSettings/emailServerSettings.json",
+  "smtp_TLS": "mail.smtp.host1",
+  "port_TLS": "5871",
+  "smtp_SSL": "555",
+  "port_SSL": "666",
+  "host_TLS": "localhost1",
+  "host_SSL": "444"
+}

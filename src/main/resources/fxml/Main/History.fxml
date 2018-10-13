@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Main.HistoryController">
+   <children>
+      <BorderPane>
+         <center>
+             <HBox prefWidth="1367.0" BorderPane.alignment="CENTER">
+                 <children>
+                     <TableView prefWidth="1367.0">
+                         <columns>
+                             <TableColumn prefWidth="89.99996948242188" text="Data" />
+                             <TableColumn prefWidth="76.99996948242188" text="Godzina" />
+                             <TableColumn prefWidth="242.0" text="Firma" />
+                             <TableColumn prefWidth="233.0" text="Imię i nazwisko" />
+                             <TableColumn prefWidth="118.0" text="Budżet" />
+                             <TableColumn prefWidth="145.0" text="Termin" />
+                             <TableColumn prefWidth="225.0" text="TEMAT" />
+                             <TableColumn prefWidth="235.0" text="Szczegóły" />
+                         </columns>
+                     </TableView>
+                 </children>
+             </HBox>
+         </center>
+         <bottom>
+            <Pane prefHeight="75.0" prefWidth="1367.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</Pane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Settings.EmailConfigController">
+   <children>
+      <BorderPane>
+         <center>
+            <Pane BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Pane>
+                                 <children>
+                                    <Label layoutX="53.0" layoutY="47.0" prefHeight="28.0" prefWidth="210.0" text="Logowanie do skrzynki:">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="fromTextField" layoutX="53.0" layoutY="163.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz swój adres email" />
+                                    <Label layoutX="53.0" layoutY="139.0" prefHeight="17.0" prefWidth="220.0" text="Adres email nadawcy (Twój adres):" />
+                                    <Label layoutX="53.0" layoutY="222.0" prefHeight="17.0" prefWidth="165.0" text="Login do skrzynki email:" />
+                                    <TextField fx:id="emailLoginTextField" layoutX="53.0" layoutY="246.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz swój login" />
+                                    <Label layoutX="53.0" layoutY="305.0" prefHeight="17.0" prefWidth="165.0" text="Hasło do skrzynki email:" />
+                                    <PasswordField fx:id="emailPassPassField" layoutX="53.0" layoutY="327.0" prefHeight="33.0" prefWidth="256.0" promptText="wpisz swoje hasło" />
+                                    <Label layoutX="393.0" layoutY="14.0" prefHeight="28.0" prefWidth="155.0" text="Tryb połączenia:">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="hostAddressTLS" layoutX="393.0" layoutY="165.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz słownie lub liczbowo" text="localhost" />
+                                    <Label layoutX="393.0" layoutY="141.0" prefHeight="17.0" prefWidth="165.0" text="Host (adres IP):" />
+                                    <TextField fx:id="SMTP_TLS" layoutX="393.0" layoutY="248.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;mail.smtp.port&quot;" text="mail.smtp.host" />
+                                    <Label layoutX="393.0" layoutY="224.0" prefHeight="17.0" prefWidth="165.0" text="Adres SMTP:" />
+                                    <TextField fx:id="PORT_TLS" layoutX="393.0" layoutY="326.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;587&quot;" text="587" />
+                                    <Label layoutX="393.0" layoutY="302.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
+                                    <Separator layoutX="344.0" layoutY="18.0" orientation="VERTICAL" prefHeight="414.0" prefWidth="6.0" />
+                                    <RadioButton fx:id="connectionTypeAsTLS" layoutX="548.0" layoutY="15.0" mnemonicParsing="false" onAction="#chosenTypeOfConnection" selected="true" text="TLS">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="connectionTypeToggleGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="connectionTypeAsSSL" layoutX="629.0" layoutY="15.0" mnemonicParsing="false" onAction="#chosenTypeOfConnection" text="SSL" toggleGroup="$connectionTypeToggleGroup">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <Separator layoutX="346.0" layoutY="52.0" prefHeight="13.0" prefWidth="687.0" />
+                                    <Label layoutX="393.0" layoutY="80.0" prefHeight="28.0" prefWidth="155.0" text="Ustawienia TLS:">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator layoutX="697.0" layoutY="60.0" orientation="VERTICAL" prefHeight="372.0" prefWidth="10.0" />
+                                    <Label layoutX="751.0" layoutY="80.0" prefHeight="28.0" prefWidth="155.0" text="Ustawienia SSL:">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="hostAddressSSL" layoutX="751.0" layoutY="165.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz słownie lub liczbowo" />
+                                    <Label layoutX="751.0" layoutY="141.0" prefHeight="17.0" prefWidth="165.0" text="Host (adres IP):" />
+                                    <TextField fx:id="SMTP_SSL" layoutX="751.0" layoutY="236.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz adres SMTP" />
+                                    <Label layoutX="751.0" layoutY="212.0" prefHeight="17.0" prefWidth="165.0" text="Adres SMTP:" />
+                                    <TextField fx:id="PORT_SSL" layoutX="751.0" layoutY="321.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;465&quot;" />
+                                    <Label layoutX="751.0" layoutY="297.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
+                                    <Separator layoutX="348.0" layoutY="426.0" prefHeight="13.0" prefWidth="709.0" />
+                                    <Button fx:id="saveEmailServerConfig" layoutX="869.0" layoutY="475.0" mnemonicParsing="false" onAction="#saveEmailServerSettings" prefHeight="50.0" prefWidth="188.0" text="ZAPISZ USTAWIENIA" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
