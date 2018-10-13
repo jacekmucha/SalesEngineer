@@ -353,12 +353,8 @@ public class NewConversationController {
         Type memberList = new TypeToken<ArrayList<Member>>() {}.getType();
         List<Member> members = gson.fromJson(reader, memberList);
 
-        System.out.println(members.toString());
-
         for (int i = 0; i < sendToTeamMembers.size(); i++) {
-//            for (int k = 0; k < members.size(); k++) {
                     sendToTeamMembers.get(i).setText(members.get(i).getName());
-//            }
         }
     }
 
@@ -366,9 +362,7 @@ public class NewConversationController {
     private List<String> sendToEmails() {
         List<String> emails = new ArrayList<>();
 
-
-        //// pracować na mapie? uzupełnić logikę
-
+        //TODO: fill logic by List of Members and do refactor
 
         emails.add("jacekmucha91@gmail.com");
         return emails;
