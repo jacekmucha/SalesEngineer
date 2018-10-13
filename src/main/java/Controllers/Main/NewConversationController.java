@@ -356,9 +356,9 @@ public class NewConversationController {
         System.out.println(members.toString());
 
         for (int i = 0; i < sendToTeamMembers.size(); i++) {
-            for (int k = 0; k < members.size(); k++) {
-                    sendToTeamMembers.get(i).setText(members.get(k).getName());
-            }
+//            for (int k = 0; k < members.size(); k++) {
+                    sendToTeamMembers.get(i).setText(members.get(i).getName());
+//            }
         }
     }
 

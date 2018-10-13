@@ -193,27 +193,6 @@ public class MyTeamController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        viewBoxSet01.getSelectionModel().select(indexes.getViewBoxSet01Index());
-//        viewBoxSet02.getSelectionModel().select(indexes.getViewBoxSet02Index());
-//        viewBoxSet03.getSelectionModel().select(indexes.getViewBoxSet03Index());
-//        viewBoxSet04.getSelectionModel().select(indexes.getViewBoxSet04Index());
-//        viewBoxSet05.getSelectionModel().select(indexes.getViewBoxSet05Index());
-//        viewBoxSet06.getSelectionModel().select(indexes.getViewBoxSet06Index());
-//        viewBoxSet07.getSelectionModel().select(indexes.getViewBoxSet07Index());
-//        viewBoxSet08.getSelectionModel().select(indexes.getViewBoxSet08Index());
-//        viewBoxSet09.getSelectionModel().select(indexes.getViewBoxSet09Index());
-//        viewBoxSet10.getSelectionModel().select(indexes.getViewBoxSet10Index());
-//        viewBoxSet11.getSelectionModel().select(indexes.getViewBoxSet11Index());
-//        viewBoxSet12.getSelectionModel().select(indexes.getViewBoxSet12Index());
-//        viewBoxSet13.getSelectionModel().select(indexes.getViewBoxSet13Index());
-//        viewBoxSet14.getSelectionModel().select(indexes.getViewBoxSet14Index());
-//        viewBoxSet15.getSelectionModel().select(indexes.getViewBoxSet15Index());
-//        viewBoxSet16.getSelectionModel().select(indexes.getViewBoxSet16Index());
-//        viewBoxSet17.getSelectionModel().select(indexes.getViewBoxSet17Index());
-//        viewBoxSet18.getSelectionModel().select(indexes.getViewBoxSet18Index());
-//        viewBoxSet19.getSelectionModel().select(indexes.getViewBoxSet19Index());
-//        viewBoxSet20.getSelectionModel().select(indexes.getViewBoxSet20Index());
-
         Reader reader = null;
         try {
             reader = new FileReader(JSONFilePaths.membersJSONFilePath);
@@ -225,14 +204,8 @@ public class MyTeamController {
         List<Member> members = gson.fromJson(reader, memberList);
 
         for (int i = 0; i < myTeamComboBoxes.size(); i++) {
-            for (int k = 0; k < members.size(); k++) {
-                myTeamComboBoxes.get(i).getSelectionModel().select(members.get(k).getId());
-            }
+                myTeamComboBoxes.get(i).getSelectionModel().select(members.get(i).getId().intValue());
         }
-
-
-//        indexesFilePath = JSONFilePaths.myIndexesFilePath;
-
     }
 
 }
