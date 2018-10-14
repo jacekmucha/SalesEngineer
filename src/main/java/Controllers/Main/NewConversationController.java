@@ -366,16 +366,22 @@ public class NewConversationController {
 
     private String sendToEmails() {
         StringBuilder sb = new StringBuilder();
+        List<String> selected = new ArrayList<>();
 
-        List<ToggleButton> selected = new ArrayList<>();
-
-        for (ToggleButton toggleButton : sendToTeamMembers) {
-            if (toggleButton.isSelected()) {
-                //TODO: Fill logic
+        for (ToggleButton toggleButton : sendToTeamMembers){
+            if(toggleButton.isSelected()){
+                selected.add(toggleButton.getText());
             }
         }
 
-
+        for (int i = 0; i < selected.size(); i++) {
+            for (int k = 0; k < membersFromJSON.size(); k++) {
+                if(selected.get(i).equals(membersFromJSON.get(k).getName())){
+                    sb.append(membersFromJSON.get(k).getEmail()).append(",");
+                    break;
+                }
+            }
+        }
         return sb.toString();
     }
 

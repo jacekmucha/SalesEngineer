@@ -25,19 +25,18 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "customerName='" + customerName + "\n" +
-                ", customerCompany='" + customerCompany + "\n" +
-                ", customerBudget=" + customerBudget +
-                ", customerPhone='" + customerPhone + "\n" +
-                ", customerEmail='" + customerEmail + "\n" +
-                ", customerDeliveryDate='" + customerDeliveryDate + "\n" +
-                ", subject='" + subject + "\n" +
-                ", statusImportant=" + statusImportant + "\n" +
-                ", statusIsDelay=" + statusIsDelay + "\n" +
-                ", products=" + products + "\n" +
-                ", details='" + details + "\n" +
-                ", sendTo=" + sendTo +
-                '}';
+        return "Nowy email:" + "\n" +
+                "Imię i nazwisko: " + customerName + "\n" +
+                "Nazwa firmy: " + customerCompany + "\n" +
+                "Budżet netto" + customerBudget + "\n" +
+                "Nr telefonu: " + customerPhone + "\n" +
+                "Email: " + customerEmail + "\n" +
+                "Termin dostawy" + customerDeliveryDate + "\n" +
+                "Temat: " + subject + "\n" +
+                "Czy bardzo ważne: " + statusImportant + "\n" +
+                "Czy jest opóźnienie: " + statusIsDelay + "\n" +
+                "Interesuje się produktami: " + products + "\n" +
+                "Szczegóły: " + details + "\n" +
+                "Wyślij powiadomienie do: " + sendTo + "\n";
     }
 }
