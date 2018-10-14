@@ -3,6 +3,7 @@ package Model;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.List;
 
 @Setter
@@ -18,24 +19,24 @@ public class Message {
     String subject;
     boolean statusImportant;
     boolean statusIsDelay;
-    List<String> products;
+    String products;
     String details;
-    List<String> sendTo;
+    String sendTo;
 
     @Override
     public String toString() {
         return "Message{" +
-                "customerName='" + customerName + '\'' +
-                ", customerCompany='" + customerCompany + '\'' +
+                "customerName='" + customerName + "\n" +
+                ", customerCompany='" + customerCompany + "\n" +
                 ", customerBudget=" + customerBudget +
-                ", customerPhone='" + customerPhone + '\'' +
-                ", customerEmail='" + customerEmail + '\'' +
-                ", customerDeliveryDate='" + customerDeliveryDate + '\'' +
-                ", subject='" + subject + '\'' +
-                ", statusImportant=" + statusImportant +
-                ", statusIsDelay=" + statusIsDelay +
-                ", products=" + products +
-                ", details='" + details + '\'' +
+                ", customerPhone='" + customerPhone + "\n" +
+                ", customerEmail='" + customerEmail + "\n" +
+                ", customerDeliveryDate='" + customerDeliveryDate + "\n" +
+                ", subject='" + subject + "\n" +
+                ", statusImportant=" + statusImportant + "\n" +
+                ", statusIsDelay=" + statusIsDelay + "\n" +
+                ", products=" + products + "\n" +
+                ", details='" + details + "\n" +
                 ", sendTo=" + sendTo +
                 '}';
     }

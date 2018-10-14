@@ -319,7 +319,28 @@ public class NewConversationController {
         chosenProducts.add(catD_product08);
         chosenProducts.add(catD_product09);
 
+        readJSONToMembersList();
         fillSendToButtons();
+    }
+
+    private void readJSONToMembersList() {
+        Reader reader = null;
+        try {
+            reader = new FileReader(JSONFilePaths.membersJSONFilePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        Type memberList = new TypeToken<ArrayList<Member>>() {
+        }.getType();
+        membersFromJSON = gson.fromJson(reader, memberList);
+    }
+
+
+    private void fillSendToButtons() {
+        for (int i = 0; i < sendToTeamMembers.size(); i++) {
+            sendToTeamMembers.get(i).setText(membersFromJSON.get(i).getName());
+        }
     }
 
     private String getSubject() {
@@ -332,40 +353,30 @@ public class NewConversationController {
         } else return subjectRadio4.getText();
     }
 
-    private List<String> getProductsInConversation() {
-        List<String> products = new ArrayList<>();
+    private String getProductsInConversation() {
+        StringBuilder sb = new StringBuilder();
         for (ToggleButton button : chosenProducts) {
-            products.add(button.getText());
+            if (button.isSelected()) {
+                sb.append(button.getText()).append(", ");
+            }
         }
-        return products;
+        return sb.toString();
     }
 
 
-    private void fillSendToButtons() {
+    private String sendToEmails() {
+        StringBuilder sb = new StringBuilder();
 
-        Reader reader = null;
-        try {
-            reader = new FileReader(JSONFilePaths.membersJSONFilePath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        List<ToggleButton> selected = new ArrayList<>();
+
+        for (ToggleButton toggleButton : sendToTeamMembers) {
+            if (toggleButton.isSelected()) {
+                //TODO: Fill logic
+            }
         }
-        Gson gson = new Gson();
-        Type memberList = new TypeToken<ArrayList<Member>>() {}.getType();
-        List<Member> members = gson.fromJson(reader, memberList);
-
-        for (int i = 0; i < sendToTeamMembers.size(); i++) {
-                    sendToTeamMembers.get(i).setText(members.get(i).getName());
-        }
-    }
 
 
-    private List<String> sendToEmails() {
-        List<String> emails = new ArrayList<>();
-
-        //TODO: fill logic by List of Members and do refactor
-
-        emails.add("jacekmucha91@gmail.com");
-        return emails;
+        return sb.toString();
     }
 
 
@@ -382,7 +393,9 @@ public class NewConversationController {
         message.setStatusIsDelay(delayCheckBox.isSelected());
         message.setProducts(getProductsInConversation());
         message.setDetails(detailsTextArea.getText());
+        message.setSendTo(sendToEmails());
 
+        System.out.println(message);
 
     }
 
