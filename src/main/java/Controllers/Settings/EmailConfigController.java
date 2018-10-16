@@ -30,19 +30,15 @@ public class EmailConfigController {
     @FXML
     private TextField hostAddressTLS;
     @FXML
-    private TextField SMTP_TLS;
-    @FXML
     private TextField PORT_TLS;
     @FXML
     private TextField hostAddressSSL;
     @FXML
-    private TextField SMTP_SSL;
-    @FXML
     private TextField PORT_SSL;
 
     private String settingsFilePath;
-
     private String connectionType;
+
 
     @FXML
     public void initialize() {
@@ -52,13 +48,13 @@ public class EmailConfigController {
     }
 
     public String chosenTypeOfConnection() {
-        if(connectionTypeAsTLS.isSelected()){
+        if (connectionTypeAsTLS.isSelected()) {
             return connectionTypeAsTLS.getText();
         } else return connectionTypeAsSSL.getText();
     }
 
-    public void setTypeOfConnection(){
-        if(connectionType.equals(connectionTypeAsTLS.getText())){
+    public void setTypeOfConnection() {
+        if (connectionType.equals(connectionTypeAsTLS.getText())) {
             connectionTypeAsTLS.setSelected(true);
             connectionTypeAsSSL.setSelected(false);
         } else {
@@ -68,7 +64,6 @@ public class EmailConfigController {
     }
 
 
-
     public void saveEmailServerSettings() {
         EmailServerSettings emailServerSettings = EmailServerSettingsSingleton.getInstance();
         emailServerSettings.setConnectionType(chosenTypeOfConnection());
@@ -76,19 +71,17 @@ public class EmailConfigController {
         emailServerSettings.setEmailUsername(emailLoginTextField.getText());
         emailServerSettings.setEmailPassword(emailPassPassField.getText());
         emailServerSettings.setHOST_TLS(hostAddressTLS.getText());
-        emailServerSettings.setSMTP_TLS(SMTP_TLS.getText());
         emailServerSettings.setPORT_TLS(PORT_TLS.getText());
         emailServerSettings.setHOST_SSL(hostAddressSSL.getText());
-        emailServerSettings.setSMTP_SSL(SMTP_SSL.getText());
         emailServerSettings.setPORT_SSL(PORT_SSL.getText());
         emailServerSettings.setSettingsFilePath(JSONFilePaths.mySettingsFilePath);
         emailServerSettings.saveEmailSettingsToJSON(emailServerSettings);
     }
 
-    public void loadEmailSettings(){
+    public void loadEmailSettings() {
         EmailServerSettings settings = null;
         try {
-            settings = ObjectMapperSingleton.getInstance().readValue(new File(JSONFilePaths.mySettingsFilePath),EmailServerSettings.class);
+            settings = ObjectMapperSingleton.getInstance().readValue(new File(JSONFilePaths.mySettingsFilePath), EmailServerSettings.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -98,14 +91,15 @@ public class EmailConfigController {
         emailLoginTextField.setText(settings.getEmailUsername());
         emailPassPassField.setText(settings.getEmailPassword());
         hostAddressTLS.setText(settings.getHOST_TLS());
-        SMTP_TLS.setText(settings.getSMTP_TLS());
         PORT_TLS.setText(settings.getPORT_TLS());
         hostAddressSSL.setText(settings.getHOST_SSL());
-        SMTP_SSL.setText(settings.getSMTP_SSL());
         PORT_SSL.setText(settings.getPORT_SSL());
         settingsFilePath = JSONFilePaths.mySettingsFilePath;
     }
 
-    }
+
+
+
+}
 
 

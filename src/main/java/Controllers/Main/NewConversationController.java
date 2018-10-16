@@ -1,9 +1,12 @@
 package Controllers.Main;
 
+import Controllers.Settings.EmailConfigController;
+import Helpers.EmailServerSettings.CurrentEmailSettings;
 import Helpers.JSON.JSONFilePaths;
 import Helpers.JSON.ObjectMapperSingleton;
 import Model.Member;
 import Model.Message;
+import Utils.EmailSender.SendMail;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -230,6 +233,11 @@ public class NewConversationController {
     List<ToggleButton> chosenProducts = new ArrayList<>();
     List<Member> membersFromJSON = new ArrayList<>();
     List<ToggleButton> sendToTeamMembers = new ArrayList<>();
+    SendMail sendMail = new SendMail();
+
+    @FXML
+    private EmailConfigController emailConfigFXMLController;
+
 
     @FXML
     void initialize() {
@@ -343,6 +351,18 @@ public class NewConversationController {
         }
     }
 
+
+    private CurrentEmailSettings transferMailSettings(){
+        CurrentEmailSettings currentEmailSettings = new CurrentEmailSettings();
+        currentEmailSettings.setFrom(emailConfigFXMLController.getFromTextField().getText());
+        currentEmailSettings.setHost_TLS(emailConfigFXMLController.getHostAddressTLS().getText());
+        currentEmailSettings.setPort_TLS(emailConfigFXMLController.getPORT_TLS().getText());
+        currentEmailSettings.setHost_SSL(emailConfigFXMLController.getHostAddressSSL().getText());
+        currentEmailSettings.setPort_SSL(emailConfigFXMLController.getPORT_SSL().getText());
+        currentEmailSettings.setConnectionType(emailConfigFXMLController.chosenTypeOfConnection());
+        return currentEmailSettings;
+    }
+
     private String getSubject() {
         if (subjectRadio1.isSelected()) {
             return subjectRadio1.getText();
@@ -363,17 +383,14 @@ public class NewConversationController {
         return sb.toString();
     }
 
-
     private String sendToEmails() {
         StringBuilder sb = new StringBuilder();
         List<String> selected = new ArrayList<>();
-
         for (ToggleButton toggleButton : sendToTeamMembers){
             if(toggleButton.isSelected()){
                 selected.add(toggleButton.getText());
             }
         }
-
         for (int i = 0; i < selected.size(); i++) {
             for (int k = 0; k < membersFromJSON.size(); k++) {
                 if(selected.get(i).equals(membersFromJSON.get(k).getName())){
@@ -402,7 +419,7 @@ public class NewConversationController {
         message.setSendTo(sendToEmails());
 
         System.out.println(message);
-
+        sendMail.send(message, transferMailSettings());
     }
 
 

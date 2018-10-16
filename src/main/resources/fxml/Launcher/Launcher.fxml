@@ -25,7 +25,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/WaitingMode.fxml" />
+                                          <fx:include source="../Main/WaitingMode.fxml" fx:id="waitingModeFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -38,7 +38,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/NewConversation.fxml" />
+                                          <fx:include source="../Main/NewConversation.fxml" fx:id="newConversationFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -51,7 +51,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/History.fxml" />
+                                          <fx:include source="../Main/History.fxml" fx:id="historyFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -64,7 +64,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/Remainder.fxml" />
+                                          <fx:include source="../Main/Remainder.fxml" fx:id="remainderFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -77,7 +77,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/FollowUp.fxml" />
+                                          <fx:include source="../Main/FollowUp.fxml" fx:id="followupFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -90,7 +90,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/BonusMoney.fxml" />
+                                          <fx:include source="../Main/BonusMoney.fxml" fx:id="bonusMoneyFXML"/>
                                        </children>
                                     </HBox>
                                  </children>
@@ -103,7 +103,7 @@
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <fx:include source="../Main/Holiday.fxml" />
+                                          <fx:include source="../Main/Holiday.fxml" fx:id="holidayFXML" />
                                        </children>
                                     </HBox>
                                  </children>

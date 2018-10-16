@@ -41,12 +41,10 @@
                                           <Font size="19.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="hostAddressTLS" layoutX="393.0" layoutY="165.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz słownie lub liczbowo" text="localhost" />
+                                    <TextField fx:id="hostAddressTLS" layoutX="393.0" layoutY="165.0" prefHeight="36.0" prefWidth="235.0" promptText="wpisz słownie lub liczbowo" text="localhost" />
                                     <Label layoutX="393.0" layoutY="141.0" prefHeight="17.0" prefWidth="165.0" text="Host (adres IP):" />
-                                    <TextField fx:id="SMTP_TLS" layoutX="393.0" layoutY="248.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;mail.smtp.port&quot;" text="mail.smtp.host" />
-                                    <Label layoutX="393.0" layoutY="224.0" prefHeight="17.0" prefWidth="165.0" text="Adres SMTP:" />
-                                    <TextField fx:id="PORT_TLS" layoutX="393.0" layoutY="326.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;587&quot;" text="587" />
-                                    <Label layoutX="393.0" layoutY="302.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
+                                    <TextField fx:id="PORT_TLS" layoutX="393.0" layoutY="244.0" prefHeight="36.0" prefWidth="235.0" promptText="np. &quot;587&quot;" text="587" />
+                                    <Label layoutX="393.0" layoutY="220.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
                                     <Separator layoutX="344.0" layoutY="18.0" orientation="VERTICAL" prefHeight="414.0" prefWidth="6.0" />
                                     <RadioButton fx:id="connectionTypeAsTLS" layoutX="548.0" layoutY="15.0" mnemonicParsing="false" onAction="#chosenTypeOfConnection" selected="true" text="TLS">
                                        <font>
@@ -67,7 +65,7 @@
                                           <Font size="19.0" />
                                        </font>
                                     </Label>
-                                    <Separator layoutX="697.0" layoutY="60.0" orientation="VERTICAL" prefHeight="372.0" prefWidth="10.0" />
+                                    <Separator layoutX="698.0" layoutY="62.0" orientation="VERTICAL" prefHeight="367.0" prefWidth="6.0" />
                                     <Label layoutX="751.0" layoutY="80.0" prefHeight="28.0" prefWidth="155.0" text="Ustawienia SSL:">
                                        <font>
                                           <Font size="19.0" />
@@ -75,10 +73,8 @@
                                     </Label>
                                     <TextField fx:id="hostAddressSSL" layoutX="751.0" layoutY="165.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz słownie lub liczbowo" />
                                     <Label layoutX="751.0" layoutY="141.0" prefHeight="17.0" prefWidth="165.0" text="Host (adres IP):" />
-                                    <TextField fx:id="SMTP_SSL" layoutX="751.0" layoutY="236.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz adres SMTP" />
-                                    <Label layoutX="751.0" layoutY="212.0" prefHeight="17.0" prefWidth="165.0" text="Adres SMTP:" />
-                                    <TextField fx:id="PORT_SSL" layoutX="751.0" layoutY="321.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;465&quot;" />
-                                    <Label layoutX="751.0" layoutY="297.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
+                                    <TextField fx:id="PORT_SSL" layoutX="751.0" layoutY="245.0" prefHeight="36.0" prefWidth="254.0" promptText="np. &quot;465&quot;" />
+                                    <Label layoutX="751.0" layoutY="221.0" prefHeight="17.0" prefWidth="192.0" text="Port SMTP:" />
                                     <Separator layoutX="348.0" layoutY="426.0" prefHeight="13.0" prefWidth="709.0" />
                                     <Button fx:id="saveEmailServerConfig" layoutX="869.0" layoutY="475.0" mnemonicParsing="false" onAction="#saveEmailServerSettings" prefHeight="50.0" prefWidth="188.0" text="ZAPISZ USTAWIENIA" />
                                  </children>
