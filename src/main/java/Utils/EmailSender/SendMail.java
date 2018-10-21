@@ -1,10 +1,8 @@
 
 package Utils.EmailSender;
 
-import Controllers.Settings.EmailConfigController;
-import Helpers.EmailServerSettings.CurrentEmailSettings;
+import Model.EmailServerSettings;
 import Model.Message;
-import javafx.fxml.FXML;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -21,7 +19,6 @@ public class SendMail{
     final String introTextCase = " w sprawie ";
 
 
-
     private String setMessagePrefix(Message message) {
         StringBuilder stringBuilder = new StringBuilder();
         if (message.isStatusImportant()) {
@@ -35,20 +32,20 @@ public class SendMail{
 
 
 
-    public void send(Message message, CurrentEmailSettings settings) {
+    public void send(Message message, EmailServerSettings settings) {
         if (settings.getConnectionType().equals("TLS")){
             sendMailTLS(message, settings);
         } else sendMailSSL(message, settings);
     }
 
-    public void sendMailTLS(Message composeMessage, CurrentEmailSettings settings) {
+    public void sendMailTLS(Message composeMessage, EmailServerSettings settings) {
 
         String to = composeMessage.getSendTo();
         String from = settings.getFrom();
-        final String username = settings.getUsername();
-        final String password = settings.getPassword();
-        String host = settings.getHost_TLS();
-        String port = settings.getPort_TLS();
+        final String username = settings.getEmailUsername();
+        final String password = settings.getEmailPassword();
+        String host = settings.getHOST_TLS();
+        String port = settings.getPORT_TLS();
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -103,7 +100,7 @@ public class SendMail{
         }
     }
 
-    public void sendMailSSL(Message message, CurrentEmailSettings settings) {
+    public void sendMailSSL(Message message, EmailServerSettings settings) {
         //        Properties props = new Properties();
         //        props.put("mail.smtp.host", host);
         //        props.put("mail.smtp.socketFactory.port", "465");

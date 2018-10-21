@@ -1,8 +1,10 @@
 package Model;
 
+import Helpers.JSON.JSONFilePaths;
 import Helpers.JSON.ObjectMapperSingleton;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.io.*;
 
 @Getter
@@ -21,7 +23,7 @@ public class EmailServerSettings {
     private String PORT_SSL;
     private String SettingsFilePath = "src/main/resources/AppSettings/emailServerSettings.json";
 
-    public void saveEmailSettingsToJSON(EmailServerSettings settings){
+    public void saveEmailSettingsToJSON(EmailServerSettings settings) {
 
         try {
             ObjectMapperSingleton.getInstance().writeValue(new File(SettingsFilePath), settings);
@@ -29,5 +31,16 @@ public class EmailServerSettings {
             e.printStackTrace();
         }
     }
+
+    public static EmailServerSettings loadSettingsFromJSON() {
+        EmailServerSettings settings = null;
+        try {
+            settings = ObjectMapperSingleton.getInstance().readValue(new File(JSONFilePaths.mySettingsFilePath), EmailServerSettings.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return settings;
+    }
+
 
 }

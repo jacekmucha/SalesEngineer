@@ -3,16 +3,11 @@ package Controllers.Main;
 import Controllers.Settings.EmailConfigController;
 import Helpers.EmailServerSettings.CurrentEmailSettings;
 import Helpers.JSON.JSONFilePaths;
-import Helpers.JSON.ObjectMapperSingleton;
+import Model.EmailServerSettings;
 import Model.Member;
 import Model.Message;
 import Utils.EmailSender.SendMail;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +15,6 @@ import javafx.scene.control.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -235,13 +229,9 @@ public class NewConversationController {
     List<ToggleButton> sendToTeamMembers = new ArrayList<>();
     SendMail sendMail = new SendMail();
 
-    @FXML
-    private EmailConfigController emailConfigFXMLController;
-
 
     @FXML
     void initialize() {
-
         sendToTeamMembers.add(sendToTMember01);
         sendToTeamMembers.add(sendToTMember02);
         sendToTeamMembers.add(sendToTMember03);
@@ -352,16 +342,6 @@ public class NewConversationController {
     }
 
 
-    private CurrentEmailSettings transferMailSettings(){
-        CurrentEmailSettings currentEmailSettings = new CurrentEmailSettings();
-        currentEmailSettings.setFrom(emailConfigFXMLController.getFromTextField().getText());
-        currentEmailSettings.setHost_TLS(emailConfigFXMLController.getHostAddressTLS().getText());
-        currentEmailSettings.setPort_TLS(emailConfigFXMLController.getPORT_TLS().getText());
-        currentEmailSettings.setHost_SSL(emailConfigFXMLController.getHostAddressSSL().getText());
-        currentEmailSettings.setPort_SSL(emailConfigFXMLController.getPORT_SSL().getText());
-        currentEmailSettings.setConnectionType(emailConfigFXMLController.chosenTypeOfConnection());
-        return currentEmailSettings;
-    }
 
     private String getSubject() {
         if (subjectRadio1.isSelected()) {
@@ -373,7 +353,7 @@ public class NewConversationController {
         } else return subjectRadio4.getText();
     }
 
-    private String getProductsInConversation() {
+    private String getProducts() {
         StringBuilder sb = new StringBuilder();
         for (ToggleButton button : chosenProducts) {
             if (button.isSelected()) {
@@ -383,7 +363,7 @@ public class NewConversationController {
         return sb.toString();
     }
 
-    private String sendToEmails() {
+    private String getAddresses() {
         StringBuilder sb = new StringBuilder();
         List<String> selected = new ArrayList<>();
         for (ToggleButton toggleButton : sendToTeamMembers){
@@ -414,12 +394,12 @@ public class NewConversationController {
         message.setSubject(getSubject());
         message.setStatusImportant(importantCheckBox.isSelected());
         message.setStatusIsDelay(delayCheckBox.isSelected());
-        message.setProducts(getProductsInConversation());
+        message.setProducts(getProducts());
         message.setDetails(detailsTextArea.getText());
-        message.setSendTo(sendToEmails());
+        message.setSendTo(getAddresses());
 
         System.out.println(message);
-        sendMail.send(message, transferMailSettings());
+        sendMail.send(message, EmailServerSettings.loadSettingsFromJSON());
     }
 
 

@@ -1,1 +1,1 @@
-{"connectionType":"TLS","from":"111","emailUsername":"222","emailPassword":"333","port_TLS":"5871","port_SSL":"666","host_TLS":"localhost1","host_SSL":"444","smtp_TLS":null,"smtp_SSL":null,"settingsFilePath":"src/main/resources/AppSettings/emailServerSettings.json"}
+{"connectionType":"TLS","from":"info@jmdev.cba.pl","emailUsername":"jacek@test.info","emailPassword":"12345","host_TLS":"localhost","port_TLS":"587","settingsFilePath":"src/main/resources/AppSettings/emailServerSettings.json","port_SSL":"465","host_SSL":"localhost","smtp_TLS":null,"smtp_SSL":null}

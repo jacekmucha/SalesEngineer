@@ -36,7 +36,7 @@ public class EmailConfigController {
     @FXML
     private TextField PORT_SSL;
 
-    private String settingsFilePath;
+    private static String settingsFilePath;
     private String connectionType;
 
 
@@ -78,15 +78,14 @@ public class EmailConfigController {
         emailServerSettings.saveEmailSettingsToJSON(emailServerSettings);
     }
 
-    public void loadEmailSettings() {
+    public EmailServerSettings loadEmailSettings() {
         EmailServerSettings settings = null;
         try {
             settings = ObjectMapperSingleton.getInstance().readValue(new File(JSONFilePaths.mySettingsFilePath), EmailServerSettings.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        connectionType = JSONFilePaths.mySettingsFilePath;
+        connectionType = settings.getConnectionType();
         fromTextField.setText(settings.getFrom());
         emailLoginTextField.setText(settings.getEmailUsername());
         emailPassPassField.setText(settings.getEmailPassword());
@@ -95,6 +94,7 @@ public class EmailConfigController {
         hostAddressSSL.setText(settings.getHOST_SSL());
         PORT_SSL.setText(settings.getPORT_SSL());
         settingsFilePath = JSONFilePaths.mySettingsFilePath;
+        return settings;
     }
 
 

@@ -25,13 +25,13 @@
                            <children>
                               <Pane>
                                  <children>
-                                    <Label layoutX="53.0" layoutY="47.0" prefHeight="28.0" prefWidth="210.0" text="Logowanie do skrzynki:">
+                                    <Label layoutX="54.0" layoutY="169.0" prefHeight="28.0" prefWidth="210.0" text="Logowanie do skrzynki:">
                                        <font>
                                           <Font size="19.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="fromTextField" layoutX="53.0" layoutY="163.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz swój adres email" />
-                                    <Label layoutX="53.0" layoutY="139.0" prefHeight="17.0" prefWidth="220.0" text="Adres email nadawcy (Twój adres):" />
+                                    <TextField fx:id="fromTextField" layoutX="53.0" layoutY="104.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz swój adres email" />
+                                    <Label layoutX="53.0" layoutY="80.0" prefHeight="17.0" prefWidth="220.0" text="Wysyłaj maile jako:" />
                                     <Label layoutX="53.0" layoutY="222.0" prefHeight="17.0" prefWidth="165.0" text="Login do skrzynki email:" />
                                     <TextField fx:id="emailLoginTextField" layoutX="53.0" layoutY="246.0" prefHeight="36.0" prefWidth="254.0" promptText="wpisz swój login" />
                                     <Label layoutX="53.0" layoutY="305.0" prefHeight="17.0" prefWidth="165.0" text="Hasło do skrzynki email:" />
