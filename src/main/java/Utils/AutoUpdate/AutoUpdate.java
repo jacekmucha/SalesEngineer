@@ -2,7 +2,6 @@ package Utils.AutoUpdate;
 
 import Launcher.Launcher;
 import jdk.nashorn.api.scripting.URLReader;
-
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -22,7 +21,9 @@ public class AutoUpdate {
 
 
     public AutoUpdate() {
+
         validateVersion();
+
     }
 
 
@@ -55,11 +56,9 @@ public class AutoUpdate {
         String s = readCurrentVersionFromWeb().get(2);
         UPDATE_VERSION = Double.parseDouble(s);
         if (UPDATE_VERSION > CURRENT_VERSION) {
-//            mainController.setLabelStatusAsAvailableNewVersion();
             return true;
-            }
-//            mainController.setLabelStatusAsActual();
-            return false;
+        }
+        return false;
     }
 
     public static void downloadNewVersion() {
