@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,7 +20,7 @@
                <children>
                   <TabPane prefWidth="1366.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="Tryb czuwania">
+                      <Tab fx:id="waitingModeTab" text="Tryb czuwania">
                            <content>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -32,7 +33,7 @@
                               </VBox>
                            </content>
                       </Tab>
-                        <Tab text="Nowa rozmowa">
+                        <Tab fx:id="newConversationTab" text="Nowa rozmowa">
                            <content>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -195,9 +196,9 @@
             </Pane>
          </center>
          <top>
-            <VBox prefHeight="103.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="111.0" prefWidth="707.0">
                      <children>
                         <ImageView fitHeight="111.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="appUpdateButton" alignment="CENTER" mnemonicParsing="false" onAction="#checkForUpdate" text="Update">
@@ -217,8 +218,24 @@
                         </Label>
                      </children>
                   </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="111.0" prefWidth="632.0">
+                     <children>
+                        <Button fx:id="toSmallWindowButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#openAssisstant" prefHeight="79.0" prefWidth="88.0">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="51.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../icons/toSmallWindow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-            </VBox>
+            </HBox>
          </top>
       </BorderPane>
    </children>
