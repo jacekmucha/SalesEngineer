@@ -2,6 +2,7 @@ package Controllers.Settings;
 
 import Helpers.JSON.JSONFilePaths;
 import Model.Product;
+import Model.ProductCategory;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
@@ -9,8 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
@@ -160,30 +160,13 @@ public class ProductsController implements Initializable {
     private TextField productD08;
     @FXML
     private TextField productD09;
-    @FXML
-    private TextField productD10;
-    @FXML
-    private TextField productD11;
-    @FXML
-    private TextField productD12;
-    @FXML
-    private TextField productD13;
-    @FXML
-    private TextField productD14;
-    @FXML
-    private TextField productD15;
-    @FXML
-    private TextField productD16;
-    @FXML
-    private TextField productD17;
-    @FXML
-    private TextField productD18;
+
 
     List<TextField> productsTextFieldList = new ArrayList<>();
     List<TextField> categoriesTextFieldList = new ArrayList<>();
 
 
-    public void saveProducts(ActionEvent event) {
+    public void saveData(ActionEvent event) {
 
         List<Product> productsList = new ArrayList<>();
 
@@ -200,11 +183,53 @@ public class ProductsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        List<ProductCategory> productCategories = new ArrayList<>();
+
+        for (int i = 0; i < categoriesTextFieldList.size(); i++) {
+            ProductCategory category = new ProductCategory();
+            category.setId(categoriesTextFieldList.get(i).getId());
+            category.setName(categoriesTextFieldList.get(i).getText());
+            productCategories.add(category);
+        }
+
+        try (FileWriter writer = new FileWriter(JSONFilePaths.categoriesFilePath)) {
+            gson.toJson(productCategories, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    private void loadProducts(){
 
-    }
+    private void loadData() {
+        Reader productsReader = null;
+        try {
+            productsReader = new FileReader(JSONFilePaths.productsFilePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        Type productList = new TypeToken<ArrayList<Product>>() {}.getType();
+        List<Product> loadedProducts = gson.fromJson(productsReader, productList);
+
+        for (int i = 0; i < productsTextFieldList.size(); i++) {
+            productsTextFieldList.get(i).setText(loadedProducts.get(i).getName());
+        }
+
+        Reader categoryReader = null;
+        try {
+            categoryReader = new FileReader(JSONFilePaths.categoriesFilePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Type categoryList = new TypeToken<ArrayList<ProductCategory>>() {}.getType();
+        List<ProductCategory> loadedCategories = gson.fromJson(categoryReader, categoryList);
+
+        for (int i = 0; i < categoriesTextFieldList.size(); i++) {
+            categoriesTextFieldList.get(i).setText(loadedCategories.get(i).getName());
+        }
+}
 
 
     @Override
@@ -281,14 +306,8 @@ public class ProductsController implements Initializable {
         productsTextFieldList.add(productD07);
         productsTextFieldList.add(productD08);
         productsTextFieldList.add(productD08);
-        productsTextFieldList.add(productD10);
-        productsTextFieldList.add(productD11);
-        productsTextFieldList.add(productD12);
-        productsTextFieldList.add(productD13);
-        productsTextFieldList.add(productD14);
-        productsTextFieldList.add(productD15);
-        productsTextFieldList.add(productD16);
-        productsTextFieldList.add(productD17);
-        productsTextFieldList.add(productD18);
+        productsTextFieldList.add(productD09);
+
+        loadData();
     }
 }

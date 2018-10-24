@@ -1,9 +1,7 @@
 package Controllers.Main;
 
 import Helpers.JSON.JSONFilePaths;
-import Model.EmailServerSettings;
-import Model.Member;
-import Model.Message;
+import Model.*;
 import Utils.EmailSender.SendMail;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -19,6 +17,17 @@ import java.util.List;
 
 
 public class NewConversationController {
+
+    @FXML
+    private Label catName_A;
+    @FXML
+    private Label catName_B;
+    @FXML
+    private Label catName_C;
+    @FXML
+    private Label catName_D;
+    @FXML
+    private Label detailsLabel;
 
     @FXML
     private TextField customerName;
@@ -221,9 +230,10 @@ public class NewConversationController {
     @FXML
     private TextArea detailsTextArea;
 
-    List<ToggleButton> chosenProducts = new ArrayList<>();
+    List<ToggleButton> products = new ArrayList<>();
     List<Member> membersFromJSON = new ArrayList<>();
     List<ToggleButton> sendToTeamMembers = new ArrayList<>();
+    List<Label> labels = new ArrayList<>();
     SendMail sendMail = new SendMail();
 
 
@@ -250,73 +260,107 @@ public class NewConversationController {
         sendToTeamMembers.add(sendToTMember19);
         sendToTeamMembers.add(sendToTMember20);
 
-        chosenProducts.add(catA_product01);
-        chosenProducts.add(catA_product02);
-        chosenProducts.add(catA_product03);
-        chosenProducts.add(catA_product04);
-        chosenProducts.add(catA_product05);
-        chosenProducts.add(catA_product06);
-        chosenProducts.add(catA_product07);
-        chosenProducts.add(catA_product08);
-        chosenProducts.add(catA_product09);
-        chosenProducts.add(catA_product10);
-        chosenProducts.add(catA_product11);
-        chosenProducts.add(catA_product12);
-        chosenProducts.add(catA_product13);
-        chosenProducts.add(catA_product14);
-        chosenProducts.add(catA_product15);
-        chosenProducts.add(catA_product16);
-        chosenProducts.add(catA_product17);
-        chosenProducts.add(catA_product18);
-        chosenProducts.add(catB_product01);
-        chosenProducts.add(catB_product02);
-        chosenProducts.add(catB_product03);
-        chosenProducts.add(catB_product04);
-        chosenProducts.add(catB_product05);
-        chosenProducts.add(catB_product06);
-        chosenProducts.add(catB_product07);
-        chosenProducts.add(catB_product08);
-        chosenProducts.add(catB_product09);
-        chosenProducts.add(catB_product10);
-        chosenProducts.add(catB_product11);
-        chosenProducts.add(catB_product12);
-        chosenProducts.add(catB_product13);
-        chosenProducts.add(catB_product14);
-        chosenProducts.add(catB_product15);
-        chosenProducts.add(catB_product16);
-        chosenProducts.add(catB_product17);
-        chosenProducts.add(catB_product18);
-        chosenProducts.add(catC_product01);
-        chosenProducts.add(catC_product02);
-        chosenProducts.add(catC_product03);
-        chosenProducts.add(catC_product04);
-        chosenProducts.add(catC_product05);
-        chosenProducts.add(catC_product06);
-        chosenProducts.add(catC_product07);
-        chosenProducts.add(catC_product08);
-        chosenProducts.add(catC_product09);
-        chosenProducts.add(catC_product10);
-        chosenProducts.add(catC_product11);
-        chosenProducts.add(catC_product12);
-        chosenProducts.add(catC_product13);
-        chosenProducts.add(catC_product14);
-        chosenProducts.add(catC_product15);
-        chosenProducts.add(catC_product16);
-        chosenProducts.add(catC_product17);
-        chosenProducts.add(catC_product18);
-        chosenProducts.add(catD_product01);
-        chosenProducts.add(catD_product02);
-        chosenProducts.add(catD_product03);
-        chosenProducts.add(catD_product04);
-        chosenProducts.add(catD_product05);
-        chosenProducts.add(catD_product06);
-        chosenProducts.add(catD_product07);
-        chosenProducts.add(catD_product08);
-        chosenProducts.add(catD_product09);
+        products.add(catA_product01);
+        products.add(catA_product02);
+        products.add(catA_product03);
+        products.add(catA_product04);
+        products.add(catA_product05);
+        products.add(catA_product06);
+        products.add(catA_product07);
+        products.add(catA_product08);
+        products.add(catA_product09);
+        products.add(catA_product10);
+        products.add(catA_product11);
+        products.add(catA_product12);
+        products.add(catA_product13);
+        products.add(catA_product14);
+        products.add(catA_product15);
+        products.add(catA_product16);
+        products.add(catA_product17);
+        products.add(catA_product18);
+        products.add(catB_product01);
+        products.add(catB_product02);
+        products.add(catB_product03);
+        products.add(catB_product04);
+        products.add(catB_product05);
+        products.add(catB_product06);
+        products.add(catB_product07);
+        products.add(catB_product08);
+        products.add(catB_product09);
+        products.add(catB_product10);
+        products.add(catB_product11);
+        products.add(catB_product12);
+        products.add(catB_product13);
+        products.add(catB_product14);
+        products.add(catB_product15);
+        products.add(catB_product16);
+        products.add(catB_product17);
+        products.add(catB_product18);
+        products.add(catC_product01);
+        products.add(catC_product02);
+        products.add(catC_product03);
+        products.add(catC_product04);
+        products.add(catC_product05);
+        products.add(catC_product06);
+        products.add(catC_product07);
+        products.add(catC_product08);
+        products.add(catC_product09);
+        products.add(catC_product10);
+        products.add(catC_product11);
+        products.add(catC_product12);
+        products.add(catC_product13);
+        products.add(catC_product14);
+        products.add(catC_product15);
+        products.add(catC_product16);
+        products.add(catC_product17);
+        products.add(catC_product18);
+        products.add(catD_product01);
+        products.add(catD_product02);
+        products.add(catD_product03);
+        products.add(catD_product04);
+        products.add(catD_product05);
+        products.add(catD_product06);
+        products.add(catD_product07);
+        products.add(catD_product08);
+        products.add(catD_product09);
 
         readJSONToMembersList();
         fillSendToButtons();
+        readCategoriesAndProducts();
     }
+
+    private void readCategoriesAndProducts(){
+        Reader products = null;
+        try {
+            products = new FileReader(JSONFilePaths.productsFilePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        Type productList = new TypeToken<ArrayList<Product>>() {}.getType();
+        List<Product> loadedProducts = gson.fromJson(products, productList);
+
+        for (int i = 0; i < this.products.size(); i++) {
+            this.products.get(i).setText(loadedProducts.get(i).getName());
+        }
+
+        Reader categories = null;
+        try {
+            categories = new FileReader(JSONFilePaths.categoriesFilePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Type categoryList = new TypeToken<ArrayList<ProductCategory>>() {}.getType();
+        List<ProductCategory> loadedCategories = gson.fromJson(categories, categoryList);
+
+        for (int i = 0; i < labels.size(); i++) {
+            labels.get(i).setText(loadedCategories.get(i).getName());
+        }
+
+    }
+
+
+
 
     private void readJSONToMembersList() {
         Reader reader = null;
@@ -331,14 +375,11 @@ public class NewConversationController {
         membersFromJSON = gson.fromJson(reader, memberList);
     }
 
-
     private void fillSendToButtons() {
         for (int i = 0; i < sendToTeamMembers.size(); i++) {
             sendToTeamMembers.get(i).setText(membersFromJSON.get(i).getName());
         }
     }
-
-
 
     private String getSubject() {
         if (subjectRadio1.isSelected()) {
@@ -352,7 +393,7 @@ public class NewConversationController {
 
     private String getProducts() {
         StringBuilder sb = new StringBuilder();
-        for (ToggleButton button : chosenProducts) {
+        for (ToggleButton button : products) {
             if (button.isSelected()) {
                 sb.append(button.getText()).append(", ");
             }

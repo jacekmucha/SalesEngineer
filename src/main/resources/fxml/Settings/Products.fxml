@@ -84,24 +84,15 @@
                   <TextField fx:id="productC16" layoutX="860.0" layoutY="302.0" prefHeight="25.0" prefWidth="83.0" />
                   <TextField fx:id="productC18" layoutX="951.0" layoutY="302.0" prefHeight="25.0" prefWidth="83.0" />
                   <TextField fx:id="productD01" layoutX="224.0" layoutY="362.0" prefHeight="25.0" prefWidth="76.0" />
-                  <TextField fx:id="productD03" layoutX="306.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD05" layoutX="394.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD07" layoutX="482.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD09" layoutX="570.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD11" layoutX="679.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD13" layoutX="769.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD15" layoutX="860.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD17" layoutX="951.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD02" layoutX="224.0" layoutY="393.0" prefHeight="25.0" prefWidth="76.0" />
-                  <TextField fx:id="productD04" layoutX="306.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD06" layoutX="394.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD08" layoutX="482.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD10" layoutX="570.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD12" layoutX="679.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD14" layoutX="769.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD16" layoutX="860.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <TextField fx:id="productD18" layoutX="951.0" layoutY="393.0" prefHeight="25.0" prefWidth="83.0" />
-                  <Button fx:id="saveProductsButton" layoutX="877.0" layoutY="484.0" mnemonicParsing="false" onAction="#saveProducts" prefHeight="40.0" prefWidth="157.0" text="Zapisz" />
+                  <TextField fx:id="productD02" layoutX="306.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD03" layoutX="394.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD04" layoutX="482.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD05" layoutX="570.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD06" layoutX="679.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD07" layoutX="769.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD08" layoutX="860.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="productD09" layoutX="951.0" layoutY="362.0" prefHeight="25.0" prefWidth="83.0" />
+                  <Button fx:id="saveProductsButton" layoutX="877.0" layoutY="484.0" mnemonicParsing="false" onAction="#saveData" prefHeight="40.0" prefWidth="157.0" text="Zapisz" />
                   <Label layoutX="38.0" layoutY="14.0" prefHeight="17.0" prefWidth="545.0" text="Wprowadź nazwy produktów lub tematów oraz kategorii dla zakładki &quot;Nowa rozmowa&quot;:">
                      <font>
                         <Font size="14.0" />
