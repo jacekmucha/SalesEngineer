@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class Dialogs {
 
-    LauncherController launcherController = new LauncherController();
+//    LauncherController launcherController = new LauncherController();
 
     public static boolean updateApp() {
 
