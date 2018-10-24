@@ -1,4 +1,4 @@
-package Controllers.Main;
+package Controllers.TopButtons;
 
 import Utils.FXMLLoader.FXMLFilePaths;
 import javafx.event.ActionEvent;
@@ -14,19 +14,18 @@ import java.io.IOException;
 
 public class RightTopButtonsController {
 
-
     public void openAssisstantStage(ActionEvent event) {
         Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setIconified(true);
-        FXMLLoader loadWaitingWindow = new FXMLLoader(this.getClass().getResource(FXMLFilePaths.ASSISSTANT_FXML));
-        Parent waitingWindow = null;
+        FXMLLoader loadAssisstant = new FXMLLoader(this.getClass().getResource(FXMLFilePaths.ASSISSTANT_FXML));
+        Parent assisstant = null;
 
         try {
             javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            waitingWindow = (Parent) loadWaitingWindow.load();
+            assisstant = (Parent) loadAssisstant.load();
             Stage waitingStage = new Stage();
             waitingStage.setTitle("Asystent");
-            waitingStage.setScene(new Scene(waitingWindow));
+            waitingStage.setScene(new Scene(assisstant));
             waitingStage.setAlwaysOnTop(true);
             waitingStage.initStyle(StageStyle.UNDECORATED);
             waitingStage.setX(primaryScreenBounds.getMaxX() - 500);

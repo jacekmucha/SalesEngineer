@@ -141,6 +141,7 @@
                                           <VBox alignment="CENTER">
                                              <children>
                                                 <HBox alignment="CENTER" />
+                                                <fx:include source="../Settings/Products.fxml" />
                                              </children>
                                           </VBox>
                                        </content>
@@ -219,7 +220,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="111.0" prefWidth="632.0">
                      <children>
-                        <fx:include source="../Assisstant/AssisstantNew.fxml" />
+                        <fx:include source="../RightTopMenuButtons/RightTopMenuButtons.fxml" />
                      </children>
                   </HBox>
                </children>

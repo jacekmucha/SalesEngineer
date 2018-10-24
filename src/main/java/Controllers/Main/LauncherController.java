@@ -16,9 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.IOException;
@@ -34,7 +32,7 @@ public class LauncherController implements Initializable {
     @FXML
     private Label appUpdateStatus;
     @FXML
-    private Button toSmallWindowButton;
+    private Button appUpdateButton;
     @FXML
     private TabPane wholeTabPane;
     @FXML
@@ -46,17 +44,9 @@ public class LauncherController implements Initializable {
     private WaitingModeController waitingModeFXMLController;
     @FXML
     private NewConversationController newConversationFXMLController;
-    @FXML
-    private AssisstantController assisstantFXMLController;
 
-
-    final String assisstantFXMLPath = "/fxml/Assisstant/Assisstant.fxml";
-    final String mainWindow = "/fxml/Launcher/Launcher.fxml";
     final String assisstantWindowName = "Asystent";
 
-//    public LauncherController(LauncherController launcherController) {
-//        this.launcherController = launcherController;
-//    }
 
     @FXML
     public void checkForUpdate() {
@@ -64,14 +54,19 @@ public class LauncherController implements Initializable {
         if (!netIsAvailable()) {
             appUpdateStatus.setText("brak dostępu do Internetu");
             appUpdateStatus.setTextFill(Color.web("#ff0000"));
+            appUpdateButton.setDisable(true);
             return;
         }
         if (!Dialogs.updateApp()) {
             appUpdateStatus.setText("aktualna");
             appUpdateStatus.setTextFill(Color.web("#008000"));
+            appUpdateButton.setDisable(true);
+
         } else {
             appUpdateStatus.setText("dostępna nowa wersja");
             appUpdateStatus.setTextFill(Color.web("#ff8000"));
+            appUpdateButton.setDisable(false);
+
         }
     }
 
@@ -134,17 +129,8 @@ public class LauncherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkForUpdate();
-
-        TabPane tabPane = wholeTabPane;
-
         ControllerMediator.getInstance().registerWaitingModeController(waitingModeFXMLController);
         ControllerMediator.getInstance().registerNewConversationController(newConversationFXMLController);
-    }
-
-    public void testControllers(ActionEvent event) {
-        System.out.println(waitingModeFXMLController);
-        System.out.println(newConversationFXMLController);
-
     }
 
     public void openNewConverationTab(){

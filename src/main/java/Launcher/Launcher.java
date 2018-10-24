@@ -1,5 +1,7 @@
 package Launcher;
 
+import Controllers.Assisstant.AssisstantController;
+import Controllers.Main.LauncherController;
 import Utils.FXMLLoader.FXMLFilePaths;
 import Utils.FXMLLoader.FXMLLoaderSingleton;
 import javafx.application.Application;
