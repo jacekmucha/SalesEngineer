@@ -28,17 +28,7 @@
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="customerName" layoutX="14.0" layoutY="51.0" prefHeight="50.0" prefWidth="335.0">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </TextField>
-                            <TextField fx:id="customerCompany" layoutX="383.0" layoutY="51.0" prefHeight="50.0" prefWidth="349.0">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </TextField>
-                            <Label fx:id="customerCompanyLabel" layoutX="383.0" layoutY="20.0" text="Nazwa firmy / instytucji:">
+                            <Label fx:id="customerCompanyLabel" layoutX="379.0" layoutY="20.0" text="Nazwa firmy / instytucji:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
@@ -48,88 +38,78 @@
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="customerPhone" layoutX="14.0" layoutY="138.0" prefHeight="50.0" prefWidth="335.0">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </TextField>
-                            <Label fx:id="customerEmailLabel" layoutX="383.0" layoutY="111.0" text="Adres email:">
+                            <Label fx:id="customerEmailLabel" layoutX="379.0" layoutY="111.0" text="Adres email:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="customerEmail" layoutX="383.0" layoutY="138.0" prefHeight="50.0" prefWidth="351.0">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </TextField>
                             <Label fx:id="statusLabel" layoutX="603.0" layoutY="221.0" text="Status:">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <Separator layoutX="14.0" layoutY="201.0" prefHeight="17.0" prefWidth="936.0" />
-                            <Separator layoutX="966.0" layoutY="25.0" orientation="VERTICAL" prefHeight="592.0" prefWidth="12.0" />
-                            <Label fx:id="sybjectLabel" layoutX="14.0" layoutY="221.0" text="TEMAT:">
                                 <font>
                                     <Font name="System Bold" size="18.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="catName_A" layoutX="15.0" layoutY="273.0" prefHeight="30.0" prefWidth="100.0" text="GIS:">
+                            <Separator layoutX="14.0" layoutY="201.0" prefHeight="17.0" prefWidth="936.0" />
+                            <Separator layoutX="966.0" layoutY="25.0" orientation="VERTICAL" prefHeight="592.0" prefWidth="12.0" />
+                            <Label fx:id="subjectLabel" layoutX="14.0" layoutY="221.0" text="TEMAT:">
                                 <font>
-                                    <Font size="18.0" />
+                                    <Font name="System Bold" size="18.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="catName_B" layoutX="12.0" layoutY="353.0" prefHeight="30.0" prefWidth="100.0" text="GEODEZJA:">
+                            <Label fx:id="catName_A" layoutX="15.0" layoutY="273.0" prefHeight="30.0" prefWidth="120.0" text="Kategoria A:">
                                 <font>
-                                    <Font size="18.0" />
+                                    <Font name="System Bold" size="18.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="catName_C" layoutX="15.0" layoutY="433.0" prefHeight="30.0" prefWidth="100.0" text="UAV:">
+                            <Label fx:id="catName_B" layoutX="12.0" layoutY="353.0" prefHeight="30.0" prefWidth="114.0" text="Kategoria B:">
                                 <font>
-                                    <Font size="18.0" />
+                                    <Font name="System Bold" size="18.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="detailsLabel" layoutX="15.0" layoutY="561.0" prefHeight="30.0" prefWidth="100.0" text="Szczegóły:">
+                            <Label fx:id="catName_C" layoutX="15.0" layoutY="433.0" prefHeight="30.0" prefWidth="120.0" text="Kategoria C:">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="detailsLabel" layoutX="15.0" layoutY="567.0" prefHeight="30.0" prefWidth="100.0" text="Szczegóły:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
                             </Label>
                             <TextArea fx:id="detailsTextArea" layoutX="142.0" layoutY="561.0" prefHeight="52.0" prefWidth="809.0" />
-                            <ToggleButton fx:id="catA_product01" layoutX="141.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP60" />
+                            <ToggleButton fx:id="catA_product01" layoutX="141.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
                             <Label layoutX="996.0" layoutY="27.0" text="Wyślij powiadomienie do:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <Button fx:id="sendButton" layoutX="999.0" layoutY="547.0" mnemonicParsing="false" onAction="#send" prefHeight="68.0" prefWidth="331.0" text="ZAPISZ I WYŚLIJ EMAIL">
+                            <Button fx:id="sendButton" layoutX="1127.0" layoutY="547.0" mnemonicParsing="false" onAction="#send" prefHeight="68.0" prefWidth="203.0" text="ZAPISZ I WYŚLIJ" wrapText="true">
                                 <font>
                                     <Font name="System Bold" size="21.0" />
                                 </font>
                             </Button>
-                            <ToggleButton fx:id="sendToTMember11" layoutX="1169.0" layoutY="71.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember01" layoutX="996.0" layoutY="71.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Artur Krzyworzeka" />
-                            <ToggleButton fx:id="sendToTMember12" layoutX="1169.0" layoutY="117.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember02" layoutX="996.0" layoutY="117.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Bartosz Smaczny" />
-                            <ToggleButton fx:id="sendToTMember13" layoutX="1169.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember03" layoutX="996.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember14" layoutX="1169.0" layoutY="208.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember04" layoutX="996.0" layoutY="208.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember15" layoutX="1170.0" layoutY="254.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember05" layoutX="997.0" layoutY="254.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember16" layoutX="1170.0" layoutY="300.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember06" layoutX="997.0" layoutY="300.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember17" layoutX="1170.0" layoutY="345.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember07" layoutX="997.0" layoutY="345.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember18" layoutX="1170.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember08" layoutX="997.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember19" layoutX="1171.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember09" layoutX="998.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember20" layoutX="1172.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
-                            <ToggleButton fx:id="sendToTMember10" layoutX="999.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="ADMINISTRACJA" />
+                            <ToggleButton fx:id="sendToTMember11" layoutX="1169.0" layoutY="71.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember01" layoutX="996.0" layoutY="71.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember12" layoutX="1169.0" layoutY="117.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember02" layoutX="996.0" layoutY="117.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember13" layoutX="1169.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember03" layoutX="996.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember14" layoutX="1169.0" layoutY="208.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember04" layoutX="996.0" layoutY="208.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember15" layoutX="1170.0" layoutY="254.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember05" layoutX="997.0" layoutY="254.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember16" layoutX="1170.0" layoutY="300.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember06" layoutX="997.0" layoutY="300.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember17" layoutX="1170.0" layoutY="345.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember07" layoutX="997.0" layoutY="345.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember18" layoutX="1170.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember08" layoutX="997.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember19" layoutX="1171.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember09" layoutX="998.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember20" layoutX="1172.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
+                            <ToggleButton fx:id="sendToTMember10" layoutX="999.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Współpracownik" />
                             <HBox layoutX="142.0" layoutY="224.0" prefHeight="22.0" prefWidth="432.0">
                                 <children>
-                                    <RadioButton fx:id="subjectRadio1" mnemonicParsing="false" prefHeight="17.0" prefWidth="80.0" text="ZAKUP">
+                                    <RadioButton fx:id="subjectRadio1" mnemonicParsing="false" prefHeight="20.0" prefWidth="98.0" text="TEMAT 1">
                                         <HBox.margin>
                                             <Insets right="10.0" />
                                         </HBox.margin>
@@ -140,7 +120,7 @@
                                             <ToggleGroup fx:id="subjectRadio" />
                                         </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="subjectRadio2" mnemonicParsing="false" prefHeight="17.0" prefWidth="80.0" text="SERWIS" toggleGroup="$subjectRadio">
+                                    <RadioButton fx:id="subjectRadio2" mnemonicParsing="false" prefHeight="20.0" prefWidth="101.0" text="TEMAT 2" toggleGroup="$subjectRadio">
                                         <HBox.margin>
                                             <Insets right="10.0" />
                                         </HBox.margin>
@@ -148,115 +128,141 @@
                                             <Font size="14.0" />
                                         </font>
                                     </RadioButton>
-                                    <RadioButton fx:id="subjectRadio3" mnemonicParsing="false" prefHeight="20.0" prefWidth="110.0" text="WSPARCIE" toggleGroup="$subjectRadio">
+                                    <RadioButton fx:id="subjectRadio3" mnemonicParsing="false" prefHeight="20.0" prefWidth="111.0" text="TEMAT 3" toggleGroup="$subjectRadio">
                                         <font>
                                             <Font size="14.0" />
                                         </font>
                                     </RadioButton>
-                                    <RadioButton fx:id="subjectRadio4" mnemonicParsing="false" prefHeight="20.0" prefWidth="138.0" text="INNE PYTANIA" toggleGroup="$subjectRadio">
+                                    <RadioButton fx:id="subjectRadio4" mnemonicParsing="false" prefHeight="20.0" prefWidth="125.0" text="TEMAT 4" toggleGroup="$subjectRadio">
                                         <font>
                                             <Font size="14.0" />
                                         </font>
                                     </RadioButton>
                                 </children>
                             </HBox>
-                            <ToggleButton fx:id="catA_product03" layoutX="230.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP20" />
-                            <ToggleButton fx:id="catA_product05" layoutX="320.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="R1" />
-                            <ToggleButton fx:id="catA_product07" layoutX="409.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="MM50" />
-                            <ToggleButton fx:id="catA_product09" layoutX="497.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="MM300" />
-                            <ToggleButton fx:id="catA_product11" layoutX="602.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="tXpress" />
-                            <ToggleButton fx:id="catA_product13" layoutX="692.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="tXplore" />
-                            <ToggleButton fx:id="catA_product15" layoutX="781.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="mLas" />
-                            <ToggleButton fx:id="catA_product17" layoutX="871.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="mapIt" />
-                            <ToggleButton fx:id="catB_product01" layoutX="140.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP80" />
-                            <ToggleButton fx:id="catB_product03" layoutX="229.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP60" />
-                            <ToggleButton fx:id="catB_product05" layoutX="319.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="R7/R3" />
-                            <ToggleButton fx:id="catB_product07" layoutX="408.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Nomad" />
-                            <ToggleButton fx:id="catB_product09" layoutX="496.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="T41" />
-                            <ToggleButton fx:id="catB_product11" layoutX="601.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SPro" />
-                            <ToggleButton fx:id="catB_product13" layoutX="691.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SMobile" />
-                            <ToggleButton fx:id="catB_product15" layoutX="780.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP Cloud" />
-                            <ToggleButton fx:id="catB_product17" layoutX="870.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Office" />
-                            <ToggleButton fx:id="catB_product02" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="F35" />
-                            <ToggleButton fx:id="catB_product04" layoutX="229.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="XF" />
-                            <ToggleButton fx:id="catB_product06" layoutX="319.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="XS" />
-                            <ToggleButton fx:id="catB_product08" layoutX="408.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="F2" />
-                            <ToggleButton fx:id="catB_product10" layoutX="496.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="DL-15" />
-                            <ToggleButton fx:id="catB_product12" layoutX="601.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="PowerGPS" />
-                            <ToggleButton fx:id="catB_product14" layoutX="691.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Raporty" />
-                            <ToggleButton fx:id="catB_product16" layoutX="780.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Fast Survey" />
-                            <ToggleButton fx:id="catB_product18" layoutX="870.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SP90m" />
-                            <ToggleButton fx:id="catC_product01" layoutX="142.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="M600 Pro" />
-                            <ToggleButton fx:id="catC_product03" layoutX="231.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="M210" />
-                            <ToggleButton fx:id="catC_product05" layoutX="321.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="PH4 2.0" />
-                            <ToggleButton fx:id="catC_product07" layoutX="410.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Inspire 2" />
-                            <ToggleButton fx:id="catC_product09" layoutX="498.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Pix4D" />
-                            <ToggleButton fx:id="catC_product11" layoutX="603.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="RGB" />
-                            <ToggleButton fx:id="catC_product13" layoutX="693.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Termo" />
-                            <ToggleButton fx:id="catC_product15" layoutX="782.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Multi" />
-                            <ToggleButton fx:id="catC_product17" layoutX="872.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="LiDAR" />
-                            <ToggleButton fx:id="catC_product02" layoutX="142.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="M210 RTK" />
-                            <ToggleButton fx:id="catC_product04" layoutX="231.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="M200" />
-                            <ToggleButton fx:id="catC_product06" layoutX="321.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Mavic Pro" />
-                            <ToggleButton fx:id="catC_product08" layoutX="410.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text=" " />
-                            <ToggleButton fx:id="catC_product10" layoutX="498.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Agisoft" />
-                            <ToggleButton fx:id="catC_product12" layoutX="603.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="RGB Lotn." />
-                            <ToggleButton fx:id="catC_product14" layoutX="693.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text=" " />
-                            <ToggleButton fx:id="catC_product16" layoutX="782.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text=" " />
-                            <ToggleButton fx:id="catC_product18" layoutX="872.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text=" " />
-                            <ToggleButton fx:id="catA_product02" layoutX="140.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Handheld" />
-                            <ToggleButton fx:id="catA_product04" layoutX="229.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Getac" />
-                            <ToggleButton fx:id="catA_product06" layoutX="319.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="TruPulse" />
-                            <ToggleButton fx:id="catA_product08" layoutX="408.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="SX Blue" />
-                            <ToggleButton fx:id="catA_product10" layoutX="496.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Tablet" />
-                            <ToggleButton fx:id="catA_product12" layoutX="601.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="MMField" />
-                            <ToggleButton fx:id="catA_product14" layoutX="691.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="DTE7" />
-                            <ToggleButton fx:id="catA_product16" layoutX="780.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="tMap" />
-                            <ToggleButton fx:id="catA_product18" layoutX="870.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="ArcPad" />
-                            <Label fx:id="customerBudgetLabel" layoutX="765.0" layoutY="21.0" prefHeight="27.0" prefWidth="148.0" text="Budżet netto:">
+                            <ToggleButton fx:id="catA_product03" layoutX="230.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product05" layoutX="320.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product07" layoutX="409.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product09" layoutX="497.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product11" layoutX="602.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product13" layoutX="692.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product15" layoutX="781.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product17" layoutX="871.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product01" layoutX="140.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product03" layoutX="229.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product05" layoutX="319.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product07" layoutX="408.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product09" layoutX="496.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product11" layoutX="601.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product13" layoutX="691.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product15" layoutX="780.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product17" layoutX="870.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product02" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product04" layoutX="229.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product06" layoutX="319.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product08" layoutX="408.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product10" layoutX="496.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product12" layoutX="601.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product14" layoutX="691.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product16" layoutX="780.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catB_product18" layoutX="870.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product01" layoutX="142.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product03" layoutX="231.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product05" layoutX="321.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product07" layoutX="410.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product09" layoutX="498.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product11" layoutX="603.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product13" layoutX="693.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product15" layoutX="782.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product17" layoutX="872.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product02" layoutX="142.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product04" layoutX="231.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product06" layoutX="321.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product08" layoutX="410.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product10" layoutX="498.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product12" layoutX="603.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product14" layoutX="693.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product16" layoutX="782.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catC_product18" layoutX="872.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product02" layoutX="140.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product04" layoutX="229.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product06" layoutX="319.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product08" layoutX="408.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product10" layoutX="496.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product12" layoutX="601.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product14" layoutX="691.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product16" layoutX="780.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catA_product18" layoutX="870.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <Label fx:id="customerBudgetLabel" layoutX="759.0" layoutY="21.0" prefHeight="27.0" prefWidth="148.0" text="Budżet netto:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="customerBudget" layoutX="764.0" layoutY="51.0" prefHeight="50.0" prefWidth="179.0">
+                            <Label fx:id="catName_D" layoutX="15.0" layoutY="512.0" prefHeight="30.0" prefWidth="114.0" text="Kategoria D:">
                                 <font>
-                                    <Font size="16.0" />
+                                    <Font name="System Bold" size="18.0" />
                                 </font>
-                            </TextField>
-                            <Label fx:id="catName_D" layoutX="15.0" layoutY="512.0" prefHeight="30.0" prefWidth="100.0" text="Inne:">
+                            </Label>
+                            <ToggleButton fx:id="catD_product01" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product02" layoutX="232.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product03" layoutX="322.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product04" layoutX="411.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product05" layoutX="499.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product06" layoutX="604.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product07" layoutX="694.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product08" layoutX="783.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <ToggleButton fx:id="catD_product09" layoutX="873.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Produkt" />
+                            <Label fx:id="customerDateOfDeliveryLabel" layoutX="760.0" layoutY="110.0" prefHeight="27.0" prefWidth="148.0" text="Termin dostawy:">
                                 <font>
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <ToggleButton fx:id="catD_product01" layoutX="143.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="LEASING" />
-                            <ToggleButton fx:id="catD_product02" layoutX="232.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Instrukcje" />
-                            <ToggleButton fx:id="catD_product03" layoutX="322.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Opcje" />
-                            <ToggleButton fx:id="catD_product04" layoutX="411.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Akcesoria" />
-                            <ToggleButton fx:id="catD_product05" layoutX="499.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Szkolenie" />
-                            <ToggleButton fx:id="catD_product06" layoutX="604.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="OEM" />
-                            <ToggleButton fx:id="catD_product07" layoutX="694.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Marketing" />
-                            <ToggleButton fx:id="catD_product08" layoutX="783.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" />
-                            <ToggleButton fx:id="catD_product09" layoutX="873.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Inne" />
-                            <Label fx:id="customerDateOfDeliveryLabel" layoutX="765.0" layoutY="110.0" prefHeight="27.0" prefWidth="148.0" text="Termin dostawy:">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <TextField fx:id="customerDateOfDelivery" layoutX="764.0" layoutY="138.0" prefHeight="50.0" prefWidth="179.0">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </TextField>
-                            <CheckBox fx:id="importantCheckBox" layoutX="673.0" layoutY="225.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="152.0" text="BARDZO WAŻNE!" textFill="RED">
+                            <CheckBox fx:id="checkBox1" layoutX="673.0" layoutY="225.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="152.0" text="STATUS #1" textFill="RED">
                                 <font>
                                     <Font name="System Bold" size="14.0" />
                                 </font>
                             </CheckBox>
-                            <CheckBox fx:id="delayCheckBox" layoutX="831.0" layoutY="225.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="OPÓŹNIENIE">
+                            <CheckBox fx:id="checkBox2" layoutX="831.0" layoutY="225.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="STATUS #2">
                                 <font>
                                     <Font name="System Bold" size="14.0" />
                                 </font>
                             </CheckBox>
+                     <Button fx:id="quickOfferButton" alignment="CENTER" contentDisplay="TOP" layoutX="999.0" layoutY="547.0" mnemonicParsing="false" onAction="#sendQuickOffer" prefHeight="68.0" prefWidth="120.0" text="SZYBKA OFERTA" textAlignment="CENTER" textFill="#4200f8" wrapText="true">
+                        <font>
+                           <Font name="System Bold" size="17.0" />
+                        </font>
+                     </Button>
+                     <Separator layoutX="736.0" layoutY="25.0" orientation="VERTICAL" prefHeight="170.0" prefWidth="3.0" />
+                     <TextField fx:id="customerName" layoutX="14.0" layoutY="48.0" prefHeight="52.0" prefWidth="341.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="customerCompany" layoutX="377.0" layoutY="48.0" prefHeight="52.0" prefWidth="341.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="customerPhone" layoutX="14.0" layoutY="143.0" prefHeight="52.0" prefWidth="341.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="customerEmail" layoutX="377.0" layoutY="143.0" prefHeight="52.0" prefWidth="341.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="customerBudget" layoutX="759.0" layoutY="48.0" prefHeight="52.0" prefWidth="189.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="customerDateOfDelivery" layoutX="762.0" layoutY="143.0" prefHeight="52.0" prefWidth="189.0">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </TextField>
                         </children>
                     </Pane>
                 </children>

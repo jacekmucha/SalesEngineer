@@ -1,5 +1,9 @@
 package Controllers.Main;
 
+import Dialogs.CustomerInfoMissingAlert;
+import Dialogs.ProductsMissingAlert;
+import Dialogs.SendToMissingAlert;
+import Dialogs.SubjectMissingAlert;
 import Helpers.JSON.JSONFilePaths;
 import Model.*;
 import Utils.EmailSender.SendMail;
@@ -28,6 +32,18 @@ public class NewConversationController {
     private Label catName_D;
     @FXML
     private Label detailsLabel;
+    @FXML
+    private RadioButton subjectRadio1;
+    @FXML
+    private RadioButton subjectRadio2;
+    @FXML
+    private RadioButton subjectRadio3;
+    @FXML
+    private RadioButton subjectRadio4;
+    @FXML
+    private CheckBox checkBox1;
+    @FXML
+    private CheckBox checkBox2;
 
     @FXML
     private TextField customerName;
@@ -41,19 +57,6 @@ public class NewConversationController {
     private TextField customerBudget;
     @FXML
     private TextField customerDateOfDelivery;
-
-    @FXML
-    private RadioButton subjectRadio1;
-    @FXML
-    private RadioButton subjectRadio2;
-    @FXML
-    private RadioButton subjectRadio3;
-    @FXML
-    private RadioButton subjectRadio4;
-    @FXML
-    private CheckBox importantCheckBox;
-    @FXML
-    private CheckBox delayCheckBox;
 
 
     @FXML
@@ -239,6 +242,12 @@ public class NewConversationController {
 
     @FXML
     void initialize() {
+
+        labels.add(catName_A);
+        labels.add(catName_B);
+        labels.add(catName_C);
+        labels.add(catName_D);
+
         sendToTeamMembers.add(sendToTMember01);
         sendToTeamMembers.add(sendToTMember02);
         sendToTeamMembers.add(sendToTMember03);
@@ -329,7 +338,7 @@ public class NewConversationController {
         readCategoriesAndProducts();
     }
 
-    private void readCategoriesAndProducts(){
+    private void readCategoriesAndProducts() {
         Reader products = null;
         try {
             products = new FileReader(JSONFilePaths.productsFilePath);
@@ -337,11 +346,14 @@ public class NewConversationController {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        Type productList = new TypeToken<ArrayList<Product>>() {}.getType();
+        Type productList = new TypeToken<ArrayList<Product>>() {
+        }.getType();
         List<Product> loadedProducts = gson.fromJson(products, productList);
 
         for (int i = 0; i < this.products.size(); i++) {
-            this.products.get(i).setText(loadedProducts.get(i).getName());
+            if (!loadedProducts.get(i).getName().equals("")) {
+                this.products.get(i).setText(loadedProducts.get(i).getName());
+            }
         }
 
         Reader categories = null;
@@ -350,17 +362,37 @@ public class NewConversationController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Type categoryList = new TypeToken<ArrayList<ProductCategory>>() {}.getType();
+        Type categoryList = new TypeToken<ArrayList<ProductCategory>>() {
+        }.getType();
         List<ProductCategory> loadedCategories = gson.fromJson(categories, categoryList);
 
         for (int i = 0; i < labels.size(); i++) {
-            labels.get(i).setText(loadedCategories.get(i).getName());
+            if (!loadedCategories.get(i).getName().equals("")) {
+                labels.get(i).setText(loadedCategories.get(i).getName());
+            }
         }
-
+        if (!loadedCategories.get(4).getName().equals("")) {
+            detailsLabel.setText(loadedCategories.get(4).getName());
+        }
+        if (!loadedCategories.get(5).getName().equals("")) {
+            subjectRadio1.setText(loadedCategories.get(5).getName());
+        }
+        if (!loadedCategories.get(6).getName().equals("")) {
+            subjectRadio2.setText(loadedCategories.get(6).getName());
+        }
+        if (!loadedCategories.get(7).getName().equals("")) {
+            subjectRadio3.setText(loadedCategories.get(7).getName());
+        }
+        if (!loadedCategories.get(8).getName().equals("")) {
+            subjectRadio4.setText(loadedCategories.get(8).getName());
+        }
+        if (!loadedCategories.get(9).getName().equals("")) {
+            checkBox1.setText(loadedCategories.get(9).getName());
+        }
+        if (!loadedCategories.get(10).getName().equals("")) {
+            checkBox2.setText(loadedCategories.get(10).getName());
+        }
     }
-
-
-
 
     private void readJSONToMembersList() {
         Reader reader = null;
@@ -388,40 +420,83 @@ public class NewConversationController {
             return subjectRadio2.getText();
         } else if (subjectRadio3.isSelected()) {
             return subjectRadio3.getText();
-        } else return subjectRadio4.getText();
+        } else if (subjectRadio4.isSelected()){
+            return subjectRadio4.getText();
+        }
+        return null;
     }
 
+
     private String getProducts() {
+        String text = null;
         StringBuilder sb = new StringBuilder();
         for (ToggleButton button : products) {
             if (button.isSelected()) {
                 sb.append(button.getText()).append(", ");
             }
         }
-        return sb.toString();
+        text = sb.toString();
+        if (text != null && text.length() > 0 && text.charAt(text.length() - 1) == ',') {
+            text = text.substring(0, text.length() - 1);
+        }
+        return text;
     }
 
     private String getAddresses() {
+        String text = null;
         StringBuilder sb = new StringBuilder();
         List<String> selected = new ArrayList<>();
-        for (ToggleButton toggleButton : sendToTeamMembers){
-            if(toggleButton.isSelected()){
+        for (ToggleButton toggleButton : sendToTeamMembers) {
+            if (toggleButton.isSelected()) {
                 selected.add(toggleButton.getText());
             }
         }
         for (int i = 0; i < selected.size(); i++) {
             for (int k = 0; k < membersFromJSON.size(); k++) {
-                if(selected.get(i).equals(membersFromJSON.get(k).getName())){
+                if (selected.get(i).equals(membersFromJSON.get(k).getName())) {
                     sb.append(membersFromJSON.get(k).getEmail()).append(",");
                     break;
                 }
             }
         }
-        return sb.toString();
+        text = sb.toString();
+        if (text != null && text.length() > 0 && text.charAt(text.length() - 1) == ',') {
+            text = text.substring(0, text.length() - 1);
+        }
+        return text;
     }
 
 
     public void send(ActionEvent actionEvent) {
+        CustomerInfoMissingAlert customerInfoMissingAlert = new CustomerInfoMissingAlert();
+        if (customerName.getText().equals("")
+                || customerCompany.getText().equals("")
+                || customerPhone.getText().equals("")
+                || customerEmail.getText().equals("")
+                || customerBudget.getText().equals("")
+                || customerDateOfDelivery.getText().equals("")) {
+            customerInfoMissingAlert.showAlert();
+            return;
+        }
+
+        SubjectMissingAlert subjectMissingAlert = new SubjectMissingAlert();
+        if(getSubject() == null){
+            subjectMissingAlert.showAlert();
+            return;
+        }
+
+        ProductsMissingAlert productsMissingAlert = new ProductsMissingAlert();
+        if(getProducts().equals("") || getProducts() == null){
+            productsMissingAlert.showAlert();
+            return;
+        }
+
+        SendToMissingAlert sendToMissingAlert = new SendToMissingAlert();
+        if(getAddresses().equals("") || getProducts() == null){
+            sendToMissingAlert.showAlert();
+            return;
+        }
+
         Message message = new Message();
         message.setCustomerName(customerName.getText());
         message.setCustomerCompany(customerCompany.getText());
@@ -430,15 +505,15 @@ public class NewConversationController {
         message.setCustomerEmail(customerEmail.getText());
         message.setCustomerDeliveryDate(customerDateOfDelivery.getText());
         message.setSubject(getSubject());
-        message.setStatusImportant(importantCheckBox.isSelected());
-        message.setStatusIsDelay(delayCheckBox.isSelected());
+        message.setStatus1(checkBox1.isSelected());
+        message.setStatus2(checkBox2.isSelected());
         message.setProducts(getProducts());
         message.setDetails(detailsTextArea.getText());
         message.setSendTo(getAddresses());
-
-        System.out.println(message);
         sendMail.send(message, EmailServerSettings.loadSettingsFromJSON());
     }
 
 
+    public void sendQuickOffer(ActionEvent event) {
+    }
 }

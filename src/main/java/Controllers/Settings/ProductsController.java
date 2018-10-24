@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -30,6 +29,19 @@ public class ProductsController implements Initializable {
     private TextField catD;
     @FXML
     private TextField details;
+    @FXML
+    private TextField subject1;
+    @FXML
+    private TextField subject2;
+    @FXML
+    private TextField subject3;
+    @FXML
+    private TextField subject4;
+    @FXML
+    private TextField status1;
+    @FXML
+    private TextField status2;
+
 
     @FXML
     private TextField productA01;
@@ -239,6 +251,12 @@ public class ProductsController implements Initializable {
         categoriesTextFieldList.add(catC);
         categoriesTextFieldList.add(catD);
         categoriesTextFieldList.add(details);
+        categoriesTextFieldList.add(subject1);
+        categoriesTextFieldList.add(subject2);
+        categoriesTextFieldList.add(subject3);
+        categoriesTextFieldList.add(subject4);
+        categoriesTextFieldList.add(status1);
+        categoriesTextFieldList.add(status2);
 
         productsTextFieldList.add(productA01);
         productsTextFieldList.add(productA02);

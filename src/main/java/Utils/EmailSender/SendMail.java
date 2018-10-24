@@ -1,6 +1,7 @@
 
 package Utils.EmailSender;
 
+import Dialogs.EmailErrorAlert;
 import Model.EmailServerSettings;
 import Model.Message;
 import javax.mail.MessagingException;
@@ -21,10 +22,10 @@ public class SendMail{
 
     private String setMessagePrefix(Message message) {
         StringBuilder stringBuilder = new StringBuilder();
-        if (message.isStatusImportant()) {
+        if (message.isStatus1()) {
             stringBuilder.append(importantStatus).append(" ");
         }
-        if (message.isStatusIsDelay()) {
+        if (message.isStatus2()) {
             stringBuilder.append(delayStatus).append(" ");
         }
         return stringBuilder.toString();
@@ -39,7 +40,7 @@ public class SendMail{
     }
 
     public void sendMailTLS(Message composeMessage, EmailServerSettings settings) {
-
+        EmailErrorAlert emailErrorAlert = new EmailErrorAlert();
         String to = composeMessage.getSendTo();
         String from = settings.getFrom();
         final String username = settings.getEmailUsername();
@@ -69,34 +70,44 @@ public class SendMail{
                     introTextCase + composeMessage.getProducts());
             message.setContent(
 
-                    "<strong>Zarejestrowano nowa rozmowe: </strong><br>" +
-                            "<h2>DANE KLIENTA:</h2>" + "<br>" +
-                            "Imie i nazwisko: " + composeMessage.getCustomerName() + "<br>" +
-                            "Firma: " + composeMessage.getCustomerCompany() + "<br>" +
+                    "<strong>Zarejestrowano nową rozmowę: </strong><br>" +
+                            "<h2>" + "DANE KLIENTA:" + "</h2>" +
+
+                            "<h3>" +
+                            "Imie i nazwisko:   " + composeMessage.getCustomerName() + "<br>" +
+                            "Firma:   " + composeMessage.getCustomerCompany() + "<br>" +
+                            "Nr tel.:   " + composeMessage.getCustomerPhone() + "<br>" +
+                            "Email:   " + composeMessage.getCustomerEmail() + "<br>" +
+                            "</h3>" + "<br>" +
+
+                            "<h2>" + "W SPRAWIE: " + "<br>" +
+                            composeMessage.getProducts() + "<br>" +
+                            "</h2>" +
+                            "<h3>" +
+                            "Przy planowanym budżecie netto: " + "<br>" +
+                            composeMessage.getCustomerBudget() + "<br>" + "<br>" +
+                            "Termin dostawy: " + "<br>" +
+                            composeMessage.getCustomerDeliveryDate() +
+                            "</h3>" +
+
+                            "<h3>" + "Szczegóły zapisane podczas rozmowy: " + "<br>" +
+                            "</h3>" +
+                            composeMessage.getDetails() +
+
                             "<br>" +
-                            "Nr tel.: " + composeMessage.getCustomerPhone() + "<br>" +
-                            "Email: " + composeMessage.getCustomerEmail() + "<br>" +
-
-                            "<h3>W sprawie: </h3>" + composeMessage.getProducts() + "<br>" +
-
-                            "<br><br>" +
-                            "Szczególy zapisane podczas rozmowy: \n" + "<br>" +
-                            composeMessage.getDetails() + "<br>" +
-
-                            "<br><br>" +
-                            "Powiadomienie wysłane do: \n" +
-                            composeMessage.getSendTo() + "\n" +
-                            "----------------------------------------------<br>" +
-                            "SalesEngineer" +
+                            "<br>" +
+                            "<h4>" +
+                            "Powiadomienie wysłane do: " + "<br>" +
+                            composeMessage.getSendTo() +
+                            "</h4>" + "<br>" +
+                            "----------------------------------------------" + "<br>" +
+                            "Wiadomość wygenerowana przez program Inżynier Sprzedaży" + "<br>" +
                             "www.jmdev.cba.pl"
 
-                    , "text/html");
+                    , "text/HTML; charset=UTF-8");
             Transport.send(message);
-
-            System.out.println("Sent message successfully....");
-
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            emailErrorAlert.showAlert();
         }
     }
 

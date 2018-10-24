@@ -4,8 +4,6 @@ package Model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Setter
 @Getter
 public class Message {
@@ -17,8 +15,8 @@ public class Message {
     String customerEmail;
     String customerDeliveryDate;
     String subject;
-    boolean statusImportant;
-    boolean statusIsDelay;
+    boolean status1;
+    boolean status2;
     String products;
     String details;
     String sendTo;
@@ -33,8 +31,8 @@ public class Message {
                 "Email: " + customerEmail + "\n" +
                 "Termin dostawy" + customerDeliveryDate + "\n" +
                 "Temat: " + subject + "\n" +
-                "Czy bardzo ważne: " + statusImportant + "\n" +
-                "Czy jest opóźnienie: " + statusIsDelay + "\n" +
+                "Czy bardzo ważne: " + status1 + "\n" +
+                "Czy jest opóźnienie: " + status2 + "\n" +
                 "Interesuje się produktami: " + products + "\n" +
                 "Szczegóły: " + details + "\n" +
                 "Wyślij powiadomienie do: " + sendTo + "\n";
