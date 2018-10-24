@@ -220,7 +220,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="111.0" prefWidth="632.0">
                      <children>
-                        <fx:include source="../RightTopMenuButtons/RightTopMenuButtons.fxml" />
+                        <fx:include source="../TopMenuButtons/TopMenuButtons.fxml" />
                      </children>
                   </HBox>
                </children>

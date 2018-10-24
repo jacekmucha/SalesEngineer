@@ -1,7 +1,5 @@
 package Controllers.Main;
 
-import Controllers.Settings.EmailConfigController;
-import Helpers.EmailServerSettings.CurrentEmailSettings;
 import Helpers.JSON.JSONFilePaths;
 import Model.EmailServerSettings;
 import Model.Member;
@@ -12,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;

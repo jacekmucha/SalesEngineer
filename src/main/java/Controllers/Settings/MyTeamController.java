@@ -132,14 +132,12 @@ public class MyTeamController {
         myTeamComboBoxes.add(viewBoxSet19);
         myTeamComboBoxes.add(viewBoxSet20);
 
-
         TableColumn name = myTeamName;
         TableColumn email = myTeamEmail;
         myTeamTable.getColumns().addAll(name, email);
         myTeamTable.setItems(myTeamRecords);
 
         createMembersLists(myTeamRecords);
-
         name.setCellValueFactory(new PropertyValueFactory<MemberToTableViewHelper, String>("name"));
         email.setCellValueFactory(new PropertyValueFactory<MemberToTableViewHelper, String>("email"));
 

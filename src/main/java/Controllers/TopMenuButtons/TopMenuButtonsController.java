@@ -1,4 +1,4 @@
-package Controllers.TopButtons;
+package Controllers.TopMenuButtons;
 
 import Utils.FXMLLoader.FXMLFilePaths;
 import javafx.event.ActionEvent;
@@ -12,7 +12,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class RightTopButtonsController {
+public class TopMenuButtonsController {
 
     public void openAssisstantStage(ActionEvent event) {
         Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();

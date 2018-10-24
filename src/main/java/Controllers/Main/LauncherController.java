@@ -1,22 +1,15 @@
 package Controllers.Main;
 
-import Controllers.Assisstant.AssisstantController;
 import Controllers.Mediator.ControllerMediator;
+import Controllers.StageConfig.StageConfig;
 import Dialogs.Dialogs;
-import Utils.FXMLLoader.FXMLFilePaths;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.IOException;
@@ -84,56 +77,18 @@ public class LauncherController implements Initializable {
         }
     }
 
-//    @FXML
-//    public  void openAssisstant(ActionEvent actionEvent) {
-//
-//        Stage stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
-//        stage.setIconified(true);
-//        FXMLLoader loadWaitingWindow = new FXMLLoader(this.getClass().getResource(FXMLFilePaths.ASSISSTANT_FXML));
-//        Parent waitingWindow = null;
-//
-//        try {
-//            javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-//            waitingWindow = (Parent) loadWaitingWindow.load();
-//            Stage waitingStage = new Stage();
-//            waitingStage.setTitle("Asystent");
-//            waitingStage.setScene(new Scene(waitingWindow));
-//            waitingStage.setAlwaysOnTop(true);
-//            waitingStage.initStyle(StageStyle.UNDECORATED);
-//            waitingStage.setX(primaryScreenBounds.getMaxX() - 500);
-//            waitingStage.setY(primaryScreenBounds.getMinY());
-//            waitingStage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    @FXML
-    public void openAssisstantV2(ActionEvent event) throws IOException {
-
-        Parent assisstantParent = FXMLLoader.load(getClass().getResource(FXMLFilePaths.ASSISSTANT_FXML));
-        Scene assisstantScene = new Scene(assisstantParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(assisstantScene);
-//        javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-//        window.setAlwaysOnTop(true);
-//        window.initStyle(StageStyle.UNDECORATED);
-//        window.setX(primaryScreenBounds.getMaxX() - 500);
-//        window.setY(primaryScreenBounds.getMinY());
-        window.show();
-    }
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkForUpdate();
         ControllerMediator.getInstance().registerWaitingModeController(waitingModeFXMLController);
         ControllerMediator.getInstance().registerNewConversationController(newConversationFXMLController);
+        StageConfig.setLauncherController(this);
     }
 
     public void openNewConverationTab(){
         wholeTabPane.getSelectionModel().select(newConversationTab);
     }
+
+    public void openWaitingModeTab(){wholeTabPane.getSelectionModel().select(waitingModeTab);}
 }
