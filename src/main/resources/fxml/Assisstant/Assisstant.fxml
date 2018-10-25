@@ -2,23 +2,38 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Assisstant.AssisstantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.com.jmdev.Controllers.Assisstant.AssisstantController">
    <children>
       <HBox>
          <children>
-            <Button fx:id="maxWindowButton" mnemonicParsing="false" onAction="#openMainWindow" prefHeight="50.0" prefWidth="70.0" text="Max">
+            <Button fx:id="maxWindowButton" mnemonicParsing="false" onAction="#openMainWindow" prefHeight="50.0" prefWidth="70.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/maximize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="goToNewConversationButton" mnemonicParsing="false" onAction="#goToNewConversation" prefHeight="50.0" prefWidth="70.0" text="Conv">
+            <Button fx:id="goToNewConversationButton" mnemonicParsing="false" onAction="#goToNewConversation" prefHeight="50.0" prefWidth="70.0">
                <HBox.margin>
                   <Insets bottom="10.0" right="10.0" top="10.0" />
                </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/newCall.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </HBox>

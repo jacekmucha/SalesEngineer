@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Settings.MyTeamController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.com.jmdev.Controllers.Settings.MyTeamController">
    <children>
       <BorderPane>
          <center>
@@ -78,26 +78,26 @@
                     </Label>
                     <ComboBox fx:id="viewBoxSet01" layoutX="798.0" layoutY="61.0" prefHeight="31.0" prefWidth="197.0" />
                     <ComboBox fx:id="viewBoxSet11" layoutX="1011.0" layoutY="61.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet02" layoutX="798.0" layoutY="104.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet12" layoutX="1011.0" layoutY="104.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet03" layoutX="798.0" layoutY="146.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet13" layoutX="1011.0" layoutY="146.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet04" layoutX="798.0" layoutY="189.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet14" layoutX="1011.0" layoutY="189.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet05" layoutX="798.0" layoutY="230.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet15" layoutX="1011.0" layoutY="230.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet06" layoutX="798.0" layoutY="273.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet16" layoutX="1011.0" layoutY="273.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet07" layoutX="798.0" layoutY="315.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet17" layoutX="1011.0" layoutY="315.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet08" layoutX="798.0" layoutY="358.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet18" layoutX="1011.0" layoutY="358.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet09" layoutX="798.0" layoutY="399.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet19" layoutX="1011.0" layoutY="399.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet10" layoutX="798.0" layoutY="442.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet20" layoutX="1011.0" layoutY="442.0" prefHeight="31.0" prefWidth="197.0" />
-                    <Button fx:id="saveMyViewButton" layoutX="1058.0" layoutY="489.0" mnemonicParsing="false" onAction="#createMembersFromComboBoxList" prefHeight="35.0" prefWidth="150.0" text="ZAPISZ" />
-                    <Separator layoutX="758.0" layoutY="28.0" orientation="VERTICAL" prefHeight="497.0" prefWidth="7.0" />
+                    <ComboBox fx:id="viewBoxSet02" layoutX="798.0" layoutY="97.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet12" layoutX="1011.0" layoutY="97.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet03" layoutX="798.0" layoutY="134.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet13" layoutX="1011.0" layoutY="134.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet04" layoutX="798.0" layoutY="172.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet14" layoutX="1011.0" layoutY="172.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet05" layoutX="798.0" layoutY="209.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet15" layoutX="1011.0" layoutY="209.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet06" layoutX="798.0" layoutY="247.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet16" layoutX="1011.0" layoutY="247.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet07" layoutX="798.0" layoutY="284.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet17" layoutX="1011.0" layoutY="284.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet08" layoutX="798.0" layoutY="323.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet18" layoutX="1011.0" layoutY="323.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet09" layoutX="798.0" layoutY="362.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet19" layoutX="1011.0" layoutY="362.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet10" layoutX="798.0" layoutY="401.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet20" layoutX="1011.0" layoutY="401.0" prefHeight="31.0" prefWidth="197.0" />
+                    <Button fx:id="saveMyViewButton" layoutX="1058.0" layoutY="451.0" mnemonicParsing="false" onAction="#createMembersFromComboBoxList" prefHeight="35.0" prefWidth="150.0" text="ZAPISZ" />
+                    <Separator layoutX="758.0" layoutY="28.0" orientation="VERTICAL" prefHeight="468.0" prefWidth="5.0" />
                 </children>
             </Pane>
          </center>
