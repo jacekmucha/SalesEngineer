@@ -76,9 +76,10 @@
                             <goal>launch4j</goal>
                         </goals>
                         <configuration>
+                            <icon>src/main/resources/SalesEngineer.ico</icon>
                             <headerType>gui</headerType>
                             <jar>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</jar>
-                            <outfile>${project.build.directory}/SalesEngineer.exe</outfile>
+                            <outfile>${project.build.directory}/SalesEngineer.exe.exe</outfile>
                             <downloadUrl>http://java.com/download</downloadUrl>
                             <classPath>
                                 <mainClass>pl.com.jmdev.Launcher.Launcher</mainClass>
@@ -98,7 +99,7 @@
                                 <txtProductVersion>1.0.0.0</txtProductVersion>
                                 <productName>${project.name}</productName>
                                 <companyName>Jacek Mucha</companyName>
-                                <internalName>SalesEngineer</internalName>
+                                <internalName>Inżynier Sprzedaży</internalName>
                                 <originalFilename>SalesEngineer.exe</originalFilename>
                             </versionInfo>
                         </configuration>

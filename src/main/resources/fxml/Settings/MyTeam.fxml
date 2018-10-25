@@ -11,92 +11,69 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.com.jmdev.Controllers.Settings.MyTeamController">
+<Pane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.com.jmdev.Controllers.Settings.MyTeamController">
    <children>
       <BorderPane>
          <center>
             <Pane BorderPane.alignment="CENTER">
                 <children>
-                    <TableView fx:id="myTeamTable" layoutX="37.0" layoutY="56.0" prefHeight="388.0" prefWidth="405.0">
+                    <TableView fx:id="myTeamTable" layoutX="37.0" layoutY="52.0" prefHeight="388.0" prefWidth="405.0">
                         <columns>
                             <TableColumn fx:id="myTeamName" prefWidth="181.0" text="Imię i nazwisko / nazwa" />
                             <TableColumn fx:id="myTeamEmail" prefWidth="223.0" text="Adres email" />
                         </columns>
                     </TableView>
-                    <Label layoutX="37.0" layoutY="18.0" text="Mój zespół:">
+                    <Label layoutX="37.0" layoutY="14.0" text="Mój zespół:">
                         <font>
                             <Font name="System Bold" size="18.0" />
                         </font>
                     </Label>
-                    <TextField layoutX="472.0" layoutY="79.0" prefHeight="36.0" prefWidth="253.0" />
-                    <Label layoutX="471.0" layoutY="18.0" text="Nowy adres:">
+                    <TextField layoutX="472.0" layoutY="75.0" prefHeight="36.0" prefWidth="253.0" />
+                    <Label layoutX="471.0" layoutY="14.0" text="Nowy adres:">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Label>
-                    <Label layoutX="472.0" layoutY="53.0" text="Imię i nazwisko / nazwa:">
+                    <Label layoutX="472.0" layoutY="49.0" text="Imię i nazwisko / nazwa:">
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
-                    <TextField layoutX="471.0" layoutY="149.0" prefHeight="36.0" prefWidth="255.0" />
-                    <Label layoutX="471.0" layoutY="123.0" text="Adres email:">
+                    <TextField layoutX="471.0" layoutY="145.0" prefHeight="36.0" prefWidth="255.0" />
+                    <Label layoutX="471.0" layoutY="119.0" text="Adres email:">
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
-                    <Label layoutX="472.0" layoutY="273.0" text="Nowy adres w domenie firmowej:">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Label>
-                    <TextField layoutX="473.0" layoutY="332.0" prefHeight="36.0" prefWidth="253.0" />
-                    <Label layoutX="473.0" layoutY="306.0" text="Imię i nazwisko / nazwa:">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Label>
-                    <Button layoutX="626.0" layoutY="199.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Dodaj" />
-                    <TextField layoutX="504.0" layoutY="408.0" prefHeight="36.0" prefWidth="222.0" />
-                    <Label layoutX="473.0" layoutY="382.0" text="Domena:">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Label>
-                    <Label layoutX="480.0" layoutY="416.0" text="\@">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Label>
-                    <Button layoutX="626.0" layoutY="456.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Dodaj" />
-                    <Button layoutX="339.0" layoutY="456.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Usuń" />
-                    <Button layoutX="217.0" layoutY="456.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Odśwież" />
-                    <Label layoutX="798.0" layoutY="18.0" prefHeight="27.0" prefWidth="273.0" text="Wybierz kolejność wyświetlania:">
+                    <Button layoutX="626.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Dodaj" />
+                    <Button layoutX="339.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Usuń" />
+                    <Button layoutX="217.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Odśwież" />
+                    <Label layoutX="798.0" layoutY="14.0" prefHeight="27.0" prefWidth="273.0" text="Wybierz kolejność wyświetlania:">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Label>
-                    <ComboBox fx:id="viewBoxSet01" layoutX="798.0" layoutY="61.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet11" layoutX="1011.0" layoutY="61.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet02" layoutX="798.0" layoutY="97.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet12" layoutX="1011.0" layoutY="97.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet03" layoutX="798.0" layoutY="134.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet13" layoutX="1011.0" layoutY="134.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet04" layoutX="798.0" layoutY="172.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet14" layoutX="1011.0" layoutY="172.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet05" layoutX="798.0" layoutY="209.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet15" layoutX="1011.0" layoutY="209.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet06" layoutX="798.0" layoutY="247.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet16" layoutX="1011.0" layoutY="247.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet07" layoutX="798.0" layoutY="284.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet17" layoutX="1011.0" layoutY="284.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet08" layoutX="798.0" layoutY="323.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet18" layoutX="1011.0" layoutY="323.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet09" layoutX="798.0" layoutY="362.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet19" layoutX="1011.0" layoutY="362.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet10" layoutX="798.0" layoutY="401.0" prefHeight="31.0" prefWidth="197.0" />
-                    <ComboBox fx:id="viewBoxSet20" layoutX="1011.0" layoutY="401.0" prefHeight="31.0" prefWidth="197.0" />
-                    <Button fx:id="saveMyViewButton" layoutX="1058.0" layoutY="451.0" mnemonicParsing="false" onAction="#createMembersFromComboBoxList" prefHeight="35.0" prefWidth="150.0" text="ZAPISZ" />
+                    <ComboBox fx:id="viewBoxSet01" layoutX="798.0" layoutY="57.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet11" layoutX="1011.0" layoutY="57.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet02" layoutX="798.0" layoutY="93.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet12" layoutX="1011.0" layoutY="93.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet03" layoutX="798.0" layoutY="130.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet13" layoutX="1011.0" layoutY="130.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet04" layoutX="798.0" layoutY="168.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet14" layoutX="1011.0" layoutY="168.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet05" layoutX="798.0" layoutY="205.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet15" layoutX="1011.0" layoutY="205.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet06" layoutX="798.0" layoutY="243.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet16" layoutX="1011.0" layoutY="243.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet07" layoutX="798.0" layoutY="280.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet17" layoutX="1011.0" layoutY="280.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet08" layoutX="798.0" layoutY="319.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet18" layoutX="1011.0" layoutY="319.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet09" layoutX="798.0" layoutY="358.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet19" layoutX="1011.0" layoutY="358.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet10" layoutX="798.0" layoutY="397.0" prefHeight="31.0" prefWidth="197.0" />
+                    <ComboBox fx:id="viewBoxSet20" layoutX="1011.0" layoutY="397.0" prefHeight="31.0" prefWidth="197.0" />
+                    <Button fx:id="saveMyViewButton" layoutX="1058.0" layoutY="447.0" mnemonicParsing="false" onAction="#createMembersFromComboBoxList" prefHeight="35.0" prefWidth="150.0" text="ZAPISZ" />
                     <Separator layoutX="758.0" layoutY="28.0" orientation="VERTICAL" prefHeight="468.0" prefWidth="5.0" />
                 </children>
             </Pane>

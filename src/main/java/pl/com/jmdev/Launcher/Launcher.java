@@ -1,5 +1,6 @@
 package pl.com.jmdev.Launcher;
 
+import javafx.scene.image.Image;
 import pl.com.jmdev.Utils.FXMLLoader.FXMLFilePaths;
 import pl.com.jmdev.Utils.FXMLLoader.FXMLLoaderSingleton;
 import javafx.application.Application;
@@ -33,6 +34,8 @@ public class Launcher extends Application {
 
         primaryStage.setScene(mainScene);
         primaryStage.setTitle(APP_NAME);
+        primaryStage.getIcons().add(
+                new Image(getClass().getResourceAsStream( "/SalesEngineer.ico")));
         primaryStage.show();
     }
 
