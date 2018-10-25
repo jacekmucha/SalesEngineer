@@ -7,5 +7,6 @@ public class JSONFilePaths {
     public static final String myIndexesFilePath = "appSettings/comboBoxesIndexes.json";
     public static final String productsFilePath = "appSettings/products.json";
     public static final String categoriesFilePath = "appSettings/productCategories.json";
+    public static final String licenseFilePath = "myLicense/license.json";
 
 }

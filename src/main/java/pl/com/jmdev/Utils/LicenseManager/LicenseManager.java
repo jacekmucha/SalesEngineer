@@ -1,11 +1,15 @@
 package pl.com.jmdev.Utils.LicenseManager;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import lombok.Getter;
 import lombok.Setter;
 import pl.com.jmdev.Alerts.NoConnectionToLicenseServerAlert;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import pl.com.jmdev.Model.License;
+import pl.com.jmdev.Utils.JSON.JSONFilePaths;
+
+import java.io.*;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,49 +20,82 @@ public class LicenseManager {
 
     public String licenseType;
 
-    public static String BASIC_VALIDATOR = "http://jmdev.cba.pl/apps/sales_engineer/license/basic.txt";
-    public static String PRO_VALIDATOR = "http://jmdev.cba.pl/apps/sales_engineer/license/pro.txt";
-    public static String MAX_VALIDATOR = "http://jmdev.cba.pl/apps/sales_engineer/license/max.txt";
+    public static String LIBRARY = "http://jmdev.cba.pl/apps/sales_engineer/license/licenses.json";
     NoConnectionToLicenseServerAlert alert = new NoConnectionToLicenseServerAlert();
 
 
-    public boolean validateBASIC(String key){
-        return validateLicense(key, BASIC_VALIDATOR);
-    }
+    private List<String> validateLicense() {
 
-    public boolean validatePRO(String key){
-        return validateLicense(key, PRO_VALIDATOR);
-    }
+        License myLicense = loadMyLicense();
+        List<License> serverResources = loadServerResources();
+        List<String> result = new ArrayList<>();
 
-    public boolean validateMAX(String key){
-        return validateLicense(key, MAX_VALIDATOR);
-    }
-
-
-
-    private boolean validateLicense(String key, String onLineLibrary) {
-        List<String> readedLicenses = new ArrayList<>();
-        BufferedReader in = null;
-        try {
-            URL licenseLibrary = new URL(onLineLibrary);
-            in = new BufferedReader(new InputStreamReader(licenseLibrary.openStream()));
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                readedLicenses.add(inputLine);
-            in.close();
-        } catch (IOException e) {
-            alert.showAlert();
-        }
-        for (int i = 0; i < readedLicenses.size(); i++) {
-            if (readedLicenses.get(i).equals(key)) {
-                return true;
+        for (License license : serverResources) {
+            if (license.getMAX_KEY().equals(myLicense.getMAX_KEY())) {
+                result.add(0, license.getOwnerName());
+                result.add(1, "MAX");
+            } else if (license.getPRO_KEY().equals(myLicense.getPRO_KEY())) {
+                result.add(0, license.getOwnerName());
+                result.add(1, "PRO");
+            } else if (license.getBASIC_KEY().equals(myLicense.getBASIC_KEY())) {
+                result.add(0, license.getOwnerName());
+                result.add(1, "BASIC");
+            } else {
+                result.add(0, "");
+                result.add(1, "Okres testowy");
             }
         }
-        return false;
+        return result;
+    }
+
+    public void saveMyLicense(String owner, String BASICkey, String PROkey, String MAXkey) {
+        License license = new License();
+        license.setOwnerName(owner);
+        license.setBASIC_KEY(BASICkey);
+        license.setPRO_KEY(PROkey);
+        license.setMAX_KEY(MAXkey);
+        Gson gson = new Gson();
+        String json = gson.toJson(license);
+        try (FileWriter writer = new FileWriter(JSONFilePaths.licenseFilePath)) {
+            gson.toJson(license, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public License loadMyLicense() {
+        License license = null;
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader(JSONFilePaths.licenseFilePath)) {
+            license = gson.fromJson(reader, License.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return license;
     }
 
 
+    public List<License> loadServerResources() {
 
+        BufferedReader in = null;
+        String inputLine = null;
+        try {
+            URL serverResources = new URL(LIBRARY);
+            in = new BufferedReader(
+                    new InputStreamReader(serverResources.openStream()));
 
+            while ((inputLine = in.readLine()) != null)
+                System.out.println(inputLine);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new Gson();
+        Type licenses = new TypeToken<ArrayList<License>>() {
+        }.getType();
+        List<License> loadedLicenses = gson.fromJson(inputLine, licenses);
+        return loadedLicenses;
+    }
 
 }
