@@ -208,7 +208,7 @@
                      <children>
                         <ImageView fitHeight="76.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../logo.png" />
+                              <Image url="@../../logo_mini.png" />
                            </image>
                            <HBox.margin>
                               <Insets bottom="15.0" left="15.0" right="30.0" top="15.0" />
@@ -245,7 +245,7 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="licenseOwnerLabel" prefHeight="17.0" prefWidth="252.0" text="nazwa firmy">
+                                          <Label fx:id="licenseOwnerLabel" prefHeight="17.0" prefWidth="252.0" text=" brak licencji">
                                              <HBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
@@ -254,34 +254,18 @@
                                     </HBox>
                                     <HBox>
                                        <children>
-                                          <Label text="Aktywne moduły:">
+                                          <Label text="Aplikacja działa w wersj:">
                                              <HBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="emailModuleLicense" prefHeight="17.0" prefWidth="42.0" text="Email">
+                                          <Label fx:id="typeOfLicense" prefHeight="17.0" prefWidth="163.0" text="OKRES TESTOWY">
                                              <HBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
-                                          </Label>
-                                          <Label fx:id="quickOfferModuleLicense" prefHeight="17.0" prefWidth="95.0" text="Szybka oferta">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label fx:id="synchroModuleLicense" prefHeight="17.0" prefWidth="95.0" text="Synchronizacja">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="5.0" />
-                                             </HBox.margin>
                                           </Label>
                                        </children>
                                     </HBox>

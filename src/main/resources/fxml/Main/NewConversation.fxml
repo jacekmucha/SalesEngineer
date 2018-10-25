@@ -10,6 +10,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -82,7 +84,7 @@
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <Button fx:id="sendButton" layoutX="1128.0" layoutY="466.0" mnemonicParsing="false" onAction="#send" prefHeight="68.0" prefWidth="203.0" text="ZAPISZ I WYŚLIJ" wrapText="true">
+                            <Button fx:id="sendButton" layoutX="1175.0" layoutY="466.0" mnemonicParsing="false" onAction="#send" prefHeight="68.0" prefWidth="156.0" text="ZAPISZ I WYŚLIJ" wrapText="true">
                                 <font>
                                     <Font name="System Bold" size="16.0" />
                                 </font>
@@ -227,10 +229,17 @@
                                     <Font name="System Bold" size="14.0" />
                                 </font>
                             </CheckBox>
-                     <Button fx:id="quickOfferButton" alignment="CENTER" contentDisplay="TOP" layoutX="1000.0" layoutY="466.0" mnemonicParsing="false" onAction="#sendQuickOffer" prefHeight="68.0" prefWidth="120.0" text="SZYBKA OFERTA" textAlignment="CENTER" textFill="#4200f8" wrapText="true">
+                     <Button fx:id="quickOfferButton" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" layoutX="1002.0" layoutY="443.0" mnemonicParsing="false" onAction="#sendQuickOffer" prefHeight="94.0" prefWidth="156.0" text="Szybka oferta" textAlignment="CENTER" textFill="#432f80" wrapText="true">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
+                        <graphic>
+                           <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../icons/quickOffer.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
                      </Button>
                      <Separator layoutX="736.0" layoutY="25.0" orientation="VERTICAL" prefHeight="143.0" prefWidth="12.0" />
                      <TextField fx:id="customerName" layoutX="14.0" layoutY="39.0" prefHeight="37.0" prefWidth="341.0">

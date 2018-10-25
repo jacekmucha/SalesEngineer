@@ -79,7 +79,7 @@
                             <icon>src/main/resources/SalesEngineer.ico</icon>
                             <headerType>gui</headerType>
                             <jar>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</jar>
-                            <outfile>${project.build.directory}/SalesEngineer.exe.exe</outfile>
+                            <outfile>${project.build.directory}/SalesEngineer.exe</outfile>
                             <downloadUrl>http://java.com/download</downloadUrl>
                             <classPath>
                                 <mainClass>pl.com.jmdev.Launcher.Launcher</mainClass>

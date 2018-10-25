@@ -23,6 +23,10 @@ import java.util.ResourceBundle;
 public class LauncherController implements Initializable {
 
     @FXML
+    private Label licenseOwnerLabel;
+    @FXML
+    private Label typeOfLicense;
+    @FXML
     private Label appUpdateStatus;
     @FXML
     private Button appUpdateButton;
@@ -91,4 +95,15 @@ public class LauncherController implements Initializable {
     }
 
     public void openWaitingModeTab(){wholeTabPane.getSelectionModel().select(waitingModeTab);}
+
+
+    public void setLicenseOwner(String owner){
+        licenseOwnerLabel.setText(owner);
+    }
+
+    public void setLicenseType(String licenseType){
+        typeOfLicense.setText(licenseType);
+    }
+
+
 }
