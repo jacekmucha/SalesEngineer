@@ -21,4 +21,6 @@ public class License {
                 ", MAX_KEY='" + MAX_KEY + '\'' +
                 '}';
     }
+
+
 }

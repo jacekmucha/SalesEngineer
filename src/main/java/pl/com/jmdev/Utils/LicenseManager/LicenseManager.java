@@ -7,10 +7,10 @@ import lombok.Setter;
 import pl.com.jmdev.Alerts.NoConnectionToLicenseServerAlert;
 import pl.com.jmdev.Model.License;
 import pl.com.jmdev.Utils.JSON.JSONFilePaths;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,34 +19,17 @@ import java.util.List;
 public class LicenseManager {
 
     public String licenseType;
+    final static String MAX = "MAX";
+    final static String PRO = "PRO";
+    final static String BASIC = "BASIC";
+    final static String noOwner = "";
+    final static String TEST_PERIOD = "OKRES TESTOWY";
+    private String validatedOwner = null;
+    private String validatedType = null;
 
     public static String LIBRARY = "http://jmdev.cba.pl/apps/sales_engineer/license/licenses.json";
     NoConnectionToLicenseServerAlert alert = new NoConnectionToLicenseServerAlert();
 
-
-    private List<String> validateLicense() {
-
-        License myLicense = loadMyLicense();
-        List<License> serverResources = loadServerResources();
-        List<String> result = new ArrayList<>();
-
-        for (License license : serverResources) {
-            if (license.getMAX_KEY().equals(myLicense.getMAX_KEY())) {
-                result.add(0, license.getOwnerName());
-                result.add(1, "MAX");
-            } else if (license.getPRO_KEY().equals(myLicense.getPRO_KEY())) {
-                result.add(0, license.getOwnerName());
-                result.add(1, "PRO");
-            } else if (license.getBASIC_KEY().equals(myLicense.getBASIC_KEY())) {
-                result.add(0, license.getOwnerName());
-                result.add(1, "BASIC");
-            } else {
-                result.add(0, "");
-                result.add(1, "Okres testowy");
-            }
-        }
-        return result;
-    }
 
     public void saveMyLicense(String owner, String BASICkey, String PROkey, String MAXkey) {
         License license = new License();
@@ -74,28 +57,73 @@ public class LicenseManager {
         return license;
     }
 
+    public String connectToLicenseServer() {
+        URLConnection connection = null;
+        StringBuilder response = new StringBuilder();
+        String inputLine;
 
-    public List<License> loadServerResources() {
-
-        BufferedReader in = null;
-        String inputLine = null;
         try {
-            URL serverResources = new URL(LIBRARY);
-            in = new BufferedReader(
-                    new InputStreamReader(serverResources.openStream()));
-
+            URL library = new URL(LIBRARY);
+            connection = library.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF8"));
             while ((inputLine = in.readLine()) != null)
-                System.out.println(inputLine);
+                response.append(inputLine);
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        String result = response.toString();
+        return result;
+    }
 
+
+    public List<License> getServerResponse() {
+        List<License> fromServer = new ArrayList<>();
+        final String serverResponse = connectToLicenseServer();
         Gson gson = new Gson();
-        Type licenses = new TypeToken<ArrayList<License>>() {
+
+        Reader reader = null;
+        reader = new StringReader(serverResponse);
+        Type licenseList = new TypeToken<ArrayList<License>>() {
         }.getType();
-        List<License> loadedLicenses = gson.fromJson(inputLine, licenses);
-        return loadedLicenses;
+        fromServer = gson.fromJson(reader, licenseList);
+
+        //TODO delete below, when method completed!
+        System.out.println("Server response as JSON LIST: \n");
+        for (License license : fromServer) {
+            System.out.println(license);
+        }
+        //TODO delete above, when method completed!
+        return fromServer;
+
+    }
+
+
+    public LicenseView validateLicense() {
+        LicenseView licenseView = new LicenseView();
+        License myLicense = loadMyLicense();
+        List<License> serverResources = getServerResponse();
+
+        for (License license : serverResources) {
+            if (license.getMAX_KEY().equals(myLicense.getMAX_KEY()) && !license.getMAX_KEY().equals(" ")) {
+                licenseView.setLicenseViewOwner(license.getOwnerName());
+                licenseView.setLicenseViewType(MAX);
+
+            } else if (license.getPRO_KEY().equals(myLicense.getPRO_KEY())&& !license.getPRO_KEY().equals(" ")) {
+                licenseView.setLicenseViewOwner(license.getOwnerName());
+                licenseView.setLicenseViewType(PRO);
+
+            } else if (license.getBASIC_KEY().equals(myLicense.getBASIC_KEY()) && !license.getBASIC_KEY().equals(" ")) {
+                licenseView.setLicenseViewOwner(license.getOwnerName());
+                licenseView.setLicenseViewType(BASIC);
+
+            } else {
+                licenseView.setLicenseViewOwner(noOwner);
+                licenseView.setLicenseViewType(TEST_PERIOD);
+
+            }
+        }
+        return  licenseView;
     }
 
 }

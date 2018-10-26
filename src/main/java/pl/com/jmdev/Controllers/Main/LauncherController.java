@@ -12,6 +12,8 @@ import javafx.scene.control.TabPane;
 import javafx.scene.paint.Color;
 import lombok.Getter;
 import lombok.Setter;
+import pl.com.jmdev.Utils.LicenseManager.LicenseManager;
+import pl.com.jmdev.Utils.LicenseManager.LicenseView;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -44,6 +46,8 @@ public class LauncherController implements Initializable {
 
     final String assisstantWindowName = "Asystent";
 
+    LicenseView licenseView = new LicenseView();
+    LicenseManager licenseManager = new LicenseManager();
 
     @FXML
     public void checkForUpdate() {
@@ -88,6 +92,10 @@ public class LauncherController implements Initializable {
         ControllerMediator.getInstance().registerWaitingModeController(waitingModeFXMLController);
         ControllerMediator.getInstance().registerNewConversationController(newConversationFXMLController);
         StageConfig.setLauncherController(this);
+
+        Label licenseOwnerLabel;
+        Label typeOfLicense;
+        showMyLicense();
     }
 
     public void openNewConverationTab(){
@@ -97,13 +105,18 @@ public class LauncherController implements Initializable {
     public void openWaitingModeTab(){wholeTabPane.getSelectionModel().select(waitingModeTab);}
 
 
-    public void setLicenseOwner(String owner){
+    public void showMyLicense(){
+        String owner = licenseManager.validateLicense().getLicenseViewOwner();
+        String type = licenseManager.validateLicense().getLicenseViewType();
+
+        System.out.println("Owner :" + owner);
+        System.out.println("Type : " + type);
+
         licenseOwnerLabel.setText(owner);
+        typeOfLicense.setText(type);
     }
 
-    public void setLicenseType(String licenseType){
-        typeOfLicense.setText(licenseType);
-    }
+
 
 
 }
