@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.com.jmdev.Alerts.*;
+import pl.com.jmdev.Controllers.StageConfig.StageConfig;
 import pl.com.jmdev.Utils.JSON.JSONExistsValidator;
 import pl.com.jmdev.Utils.JSON.JSONFilePaths;
 import pl.com.jmdev.Model.*;
@@ -517,6 +518,7 @@ public class NewConversationController {
 
         MessageSuccessfulySendAlert messageSuccessfulySendAlert = new MessageSuccessfulySendAlert();
         messageSuccessfulySendAlert.showAlert();
+        StageConfig.getLauncherController().openWaitingModeTab();
     }
 
 

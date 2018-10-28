@@ -54,6 +54,7 @@ public class LicenseManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("\nMY LICENSE: " + license + "\n*******");
         return license;
     }
 
@@ -104,26 +105,27 @@ public class LicenseManager {
         License myLicense = loadMyLicense();
         List<License> serverResources = getServerResponse();
 
-        for (License license : serverResources) {
-            if (license.getMAX_KEY().equals(myLicense.getMAX_KEY()) && !license.getMAX_KEY().equals(" ")) {
-                licenseView.setLicenseViewOwner(license.getOwnerName());
-                licenseView.setLicenseViewType(MAX);
-
-            } else if (license.getPRO_KEY().equals(myLicense.getPRO_KEY())&& !license.getPRO_KEY().equals(" ")) {
-                licenseView.setLicenseViewOwner(license.getOwnerName());
-                licenseView.setLicenseViewType(PRO);
-
-            } else if (license.getBASIC_KEY().equals(myLicense.getBASIC_KEY()) && !license.getBASIC_KEY().equals(" ")) {
-                licenseView.setLicenseViewOwner(license.getOwnerName());
-                licenseView.setLicenseViewType(BASIC);
-
-            } else {
-                licenseView.setLicenseViewOwner(noOwner);
-                licenseView.setLicenseViewType(TEST_PERIOD);
-
-            }
-        }
-        return  licenseView;
+        serverResources.stream()
+                .forEach(license -> {
+                    if(myLicense.getMAX_KEY().equals(license.getMAX_KEY()) && !license.getMAX_KEY().equals("") && !license.getMAX_KEY().equals(null)){
+                        licenseView.setLicenseViewType(MAX);
+                        licenseView.setLicenseViewOwner(license.getOwnerName());
+                        return;
+                    } else if(myLicense.getPRO_KEY().equals(license.getPRO_KEY())&& !license.getPRO_KEY().equals("") && !license.getPRO_KEY().equals(null)){
+                        licenseView.setLicenseViewType(PRO);
+                        licenseView.setLicenseViewOwner(license.getOwnerName());
+                        return;
+                    } else if(myLicense.getBASIC_KEY().equals(license.getBASIC_KEY())&& !license.getBASIC_KEY().equals("") && !license.getBASIC_KEY().equals(null)){
+                        licenseView.setLicenseViewType(PRO);
+                        licenseView.setLicenseViewOwner(license.getOwnerName());
+                        return;
+                    }
+                    else {
+                        licenseView.setLicenseViewType(TEST_PERIOD);
+                        licenseView.setLicenseViewOwner(noOwner);
+                    }
+                });
+        return licenseView;
     }
 
 }
