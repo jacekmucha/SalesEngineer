@@ -7,6 +7,7 @@ import lombok.Setter;
 import pl.com.jmdev.Alerts.NoConnectionToLicenseServerAlert;
 import pl.com.jmdev.Model.License;
 import pl.com.jmdev.Utils.JSON.JSONFilePaths;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -27,13 +28,16 @@ public class LicenseManager {
     private String validatedOwner = null;
     private String validatedType = null;
 
+    String toSetBASICKey = null;
+    String toSetPROKey = null;
+    String toSetMAXKey = null;
+
     public static String LIBRARY = "http://jmdev.cba.pl/apps/sales_engineer/license/licenses.json";
     NoConnectionToLicenseServerAlert alert = new NoConnectionToLicenseServerAlert();
 
 
-    public void saveMyLicense(String owner, String BASICkey, String PROkey, String MAXkey) {
+    public void saveMyLicense(String BASICkey, String PROkey, String MAXkey) {
         License license = new License();
-        license.setOwnerName(owner);
         license.setBASIC_KEY(BASICkey);
         license.setPRO_KEY(PROkey);
         license.setMAX_KEY(MAXkey);
@@ -101,31 +105,40 @@ public class LicenseManager {
 
 
     public LicenseView validateLicense() {
-        LicenseView licenseView = new LicenseView();
+
         License myLicense = loadMyLicense();
         List<License> serverResources = getServerResponse();
+        LicenseView licenseViewMAX = new LicenseView();
+        LicenseView licenseViewPRO = new LicenseView();
+        LicenseView licenseViewBASIC = new LicenseView();
+        LicenseView licenseViewTest = new LicenseView();
 
-        serverResources.stream()
-                .forEach(license -> {
-                    if(myLicense.getMAX_KEY().equals(license.getMAX_KEY()) && !license.getMAX_KEY().equals("") && !license.getMAX_KEY().equals(null)){
-                        licenseView.setLicenseViewType(MAX);
-                        licenseView.setLicenseViewOwner(license.getOwnerName());
-                        return;
-                    } else if(myLicense.getPRO_KEY().equals(license.getPRO_KEY())&& !license.getPRO_KEY().equals("") && !license.getPRO_KEY().equals(null)){
-                        licenseView.setLicenseViewType(PRO);
-                        licenseView.setLicenseViewOwner(license.getOwnerName());
-                        return;
-                    } else if(myLicense.getBASIC_KEY().equals(license.getBASIC_KEY())&& !license.getBASIC_KEY().equals("") && !license.getBASIC_KEY().equals(null)){
-                        licenseView.setLicenseViewType(PRO);
-                        licenseView.setLicenseViewOwner(license.getOwnerName());
-                        return;
-                    }
-                    else {
-                        licenseView.setLicenseViewType(TEST_PERIOD);
-                        licenseView.setLicenseViewOwner(noOwner);
-                    }
-                });
-        return licenseView;
+//        for (int i = 0; i < serverResources.size(); i++) {
+//            if (serverResources.get(i).getMAX_KEY().equals(myLicense.getMAX_KEY())){
+//                licenseViewMAX.setLicenseViewOwner(serverResources.get(i).getOwnerName());
+//                licenseViewMAX.setLicenseViewType(MAX);
+//                return licenseViewMAX;
+//            }
+//        }
+//
+//        for (int i = 0; i < serverResources.size(); i++) {
+//            if (serverResources.get(i).getPRO_KEY().equals(myLicense.getPRO_KEY())){
+//                licenseViewMAX.setLicenseViewOwner(serverResources.get(i).getOwnerName());
+//                licenseViewMAX.setLicenseViewType(PRO);
+//                return licenseViewPRO;
+//            }
+//        }
+//
+//        for (int i = 0; i < serverResources.size(); i++) {
+//            if (serverResources.get(i).getBASIC_KEY().equals(myLicense.getBASIC_KEY())){
+//                licenseViewMAX.setLicenseViewOwner(serverResources.get(i).getOwnerName());
+//                licenseViewMAX.setLicenseViewType(BASIC);
+//                return licenseViewBASIC;
+//            }
+//        }
+        licenseViewTest.setLicenseViewOwner(noOwner);
+        licenseViewTest.setLicenseViewType(TEST_PERIOD);
+        return licenseViewTest;
     }
 
 }

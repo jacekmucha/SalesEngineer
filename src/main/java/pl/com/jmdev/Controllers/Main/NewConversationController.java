@@ -519,9 +519,34 @@ public class NewConversationController {
         MessageSuccessfulySendAlert messageSuccessfulySendAlert = new MessageSuccessfulySendAlert();
         messageSuccessfulySendAlert.showAlert();
         StageConfig.getLauncherController().openWaitingModeTab();
+        clearAllFields();
     }
 
 
     public void sendQuickOffer(ActionEvent event) {
+    }
+
+    private void clearAllFields(){
+        customerName.setText("");
+        customerCompany.setText("");
+        customerPhone.setText("");
+        customerEmail.setText("");
+        customerBudget.setText("");
+        customerDateOfDelivery.setText("");
+        detailsTextArea.setText("");
+        checkBox1.setSelected(false);
+        checkBox2.setSelected(false);
+        subjectRadio1.setSelected(false);
+        subjectRadio2.setSelected(false);
+        subjectRadio3.setSelected(false);
+        subjectRadio4.setSelected(false);
+
+        for (ToggleButton toggleButton : sendToTeamMembers) {
+            toggleButton.setSelected(false);
+        }
+        for (ToggleButton toggleButton : products) {
+            toggleButton.setSelected(false);
+        }
+
     }
 }

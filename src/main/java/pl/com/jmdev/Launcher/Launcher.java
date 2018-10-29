@@ -13,7 +13,7 @@ public class Launcher extends Application {
 
     public static final String APP_NAME = "Inżynier sprzedaży";
 
-    public static Double AppVersion = 1.1;
+    public static Double AppVersion = 1.2;
     private static Stage mainStage;
 
     public static Stage getMainStage() {
